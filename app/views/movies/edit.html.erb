@@ -4,8 +4,8 @@
   <%= text_field :ingredient, 'item', :class => 'form-control' %>
   <%= label :ingredient, :quantity, 'Quantity', :class => 'col-form-label'  %>
   <%= select :ingredient, :quantity, :class => 'form-control' %>
-  <%= label :ingredient, :release_date, 'Released On', :class => 'col-form-label'  %>
-  <%= date_select :movie, :release_date, {}, :class => 'form-control col-2 d-inline' %>
+  <%= label :ingredient, :expiration_date, 'Expiration Date', :class => 'col-form-label'  %>
+  <%= date_select :ingredient, :expiration_date, {}, :class => 'form-control col-2 d-inline' %>
   <br/>
   <%= submit_tag 'Update Ingredient Info', :class => 'btn btn-primary' %>
   <%= link_to 'Cancel', ingredients_path, :class => 'btn btn-secondary' %>
