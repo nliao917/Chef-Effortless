@@ -1,5 +1,32 @@
-<!--  This file is app/views/movies/index.html.erb -->
-<h2>Welcome to Chef Effortless</h2>
+<h2>All Ingredients</h2>
 
-<%= link_to "Check your ingredient", ingredients_path, :class => 'btn btn-primary' %>
-<%= link_to 'Customized recipe ', recipes_path, :class => 'btn btn-primary' %>
+<%#  Part 2: Start here... %>
+
+<table class="table table-striped col-md-12" id="movies">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Expiration Date</th>
+      <th>Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @ingredients.each do |movie| %>
+      <tr>
+        <td>
+          <%= movie.item %>
+        </td>
+        <td>
+          <%= movie.quantity %>
+        </td>
+        <td>
+          <%= movie.expiration_date %>
+        </td>
+        <td>
+          <%= link_to "More about #{movie.item}", edit_ingredient_path(movie) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
