@@ -10,9 +10,9 @@ class IngredientsController < ApplicationController
     @ingredients = Ingredient.all
   end
 
-  def new
-    # default: render 'new' template
-  end
+  # def new
+  #   # default: render 'new' template
+  # end
 
   def create
     @ingredient = Ingredient.create!(ingredient_params)
@@ -31,16 +31,16 @@ class IngredientsController < ApplicationController
     redirect_to ingredient_path(@ingredient)
   end
 
-  def destroy
-    @ingredient = Ingredient.find(params[:id])
-    @ingredient.destroy
-    flash[:notice] = "Ingredient '#{@ingredient.title}' deleted."
-    redirect_to ingredients_path
-  end
+  # def destroy
+  #   @ingredient = Ingredient.find(params[:id])
+  #   @ingredient.destroy
+  #   flash[:notice] = "Ingredient '#{@ingredient.title}' deleted."
+  #   redirect_to ingredients_path
+  # end
 
-  private
-  # Making "internal" methods private is not required, but is a common practice.
-  # This helps make clear which methods respond to requests, and which ones do not.
+  # private
+  # # Making "internal" methods private is not required, but is a common practice.
+  # # This helps make clear which methods respond to requests, and which ones do not.
   def ingredient_params
     params.require(:ingredient).permit(:item, :quantity, :quantity_date)
   end
