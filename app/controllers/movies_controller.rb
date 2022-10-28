@@ -1,13 +1,13 @@
-class MoviesController < ApplicationController
+class IngredientsController < ApplicationController
 
   def show
     id = params[:id] # retrieve movie ID from URI route
-    @movie = Movie.find(id) # look up movie by unique ID
+    @ingredient = Ingredient.find(id) # look up movie by unique ID
     # will render app/views/movies/show.<extension> by default
   end
 
   def index
-    @movies = Movie.all
+    @ingredients = Ingredient.all
   end
 
   def new
@@ -15,33 +15,33 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = Movie.create!(movie_params)
-    flash[:notice] = "#{@movie.title} was successfully created."
-    redirect_to movies_path
+    @ingredient = Ingredient.create!(ingredient_params)
+    flash[:notice] = "#{@ingredient.item} was successfully created."
+    redirect_to ingredients_path
   end
 
   def edit
-    @movie = Movie.find params[:id]
+    @ingredient = Ingredient.find params[:id]
   end
 
   def update
-    @movie = Movie.find params[:id]
-    @movie.update_attributes!(movie_params)
-    flash[:notice] = "#{@movie.title} was successfully updated."
-    redirect_to movie_path(@movie)
+    @ingredient = Ingredient.find params[:id]
+    @ingredient.update_attributes!(ingredient_params)
+    flash[:notice] = "#{@ingredient.item} was successfully updated."
+    redirect_to ingredient_path(@ingredient)
   end
 
   def destroy
-    @movie = Movie.find(params[:id])
-    @movie.destroy
-    flash[:notice] = "Movie '#{@movie.title}' deleted."
-    redirect_to movies_path
+    @ingredient = Ingredient.find(params[:id])
+    @ingredient.destroy
+    flash[:notice] = "Ingredient '#{@ingredient.title}' deleted."
+    redirect_to ingredients_path
   end
 
   private
   # Making "internal" methods private is not required, but is a common practice.
   # This helps make clear which methods respond to requests, and which ones do not.
-  def movie_params
-    params.require(:movie).permit(:title, :rating, :description, :release_date)
+  def ingredient_params
+    params.require(:ingredient).permit(:item, :quantity, :quantity_date)
   end
 end
