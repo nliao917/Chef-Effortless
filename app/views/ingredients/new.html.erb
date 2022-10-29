@@ -1,8 +1,6 @@
-<h2>Create New Ingredient</h2>
+<h2><%=:item%></h2>
 
 <%= form_tag ingredients_path, :class => 'form' do %>
-  <%= label :ingredient, :item, 'Item', :class => 'col-form-label' %>
-  <%= text_field :ingredient, :item, :class => 'form-control' %>
   <%= label :ingredient, :quantity, 'Quantity', :class => 'col-form-label' %>
   <%= text_field :ingredient, :quantity, :class => 'form-control' %>
   <%= label :ingredient, :release_date, 'Released On', :class => 'col-form-label'  %>

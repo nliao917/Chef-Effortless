@@ -12,19 +12,19 @@
     </tr>
   </thead>
   <tbody>
-    <% @ingredients.each do |movie| %>
+    <% @ingredients.each do |ingredient| %>
       <tr>
         <td>
-          <%= movie.item %>
+          <%= ingredient.item %>
         </td>
         <td>
-          <%= movie.quantity %>
+          <%= ingredient.quantity %>
         </td>
         <td>
-          <%= movie.expiration_date %>
+          <%= ingredient.expiration_date %>
         </td>
         <td>
-          <%= link_to "More about #{movie.item}", edit_ingredient_path(movie) %>
+          <%= link_to "More about #{ingredient.item}", edit_ingredient_path(ingredient) %>
         </td>
       </tr>
     <% end %>
