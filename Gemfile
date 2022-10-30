@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 
 ruby '2.6.6'
 gem 'rails', '4.2.10'
+gem 'pg', '~> 0.15'
+gem 'rails_12factor'
+
 
 # for Heroku deployment 
 group :development, :test do
@@ -12,6 +15,7 @@ group :development, :test do
   gem 'launchy'
   gem 'rspec-rails', '3.7.2'
   gem 'ZenTest', '4.11.2'
+  # gem 'pg'
 end
 
 group :test do
@@ -19,9 +23,10 @@ group :test do
   gem 'cucumber-rails-training-wheels'
   gem 'simplecov', :require => false
 end
-group :production do
-  gem 'pg'
-end
+#group :production do
+#  gem 'pg', '~> 1.4.4'
+#  gem 'rails_12factor'
+#end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -29,3 +34,4 @@ end
 gem 'sass-rails', '~> 5.0.3'
 gem 'uglifier', '>= 2.7.1'
 gem 'jquery-rails'
+# gem 'pg', '1.4.4'
