@@ -2,13 +2,13 @@
 
 <%#  Part 2: Start here... %>
 
-<table class="table table-striped col-md-12" id="movies">
+<table class="table table-striped col-md-12" id="ingredients">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Item</th>
       <th>Quantity</th>
-      <th>Expiration Date</th>
-      <th>Edit</th>
+<!--       <th>Expiration Date</th> -->
+      <th>Make Changes</th>
     </tr>
   </thead>
   <tbody>
@@ -20,9 +20,9 @@
         <td>
           <%= ingredient.quantity %>
         </td>
-        <td>
-          <%= ingredient.expiration_date %>
-        </td>
+<!--         <td>
+          <%= date_select :ingredient, ingredient.expiration_date %>
+        </td> -->
         <td>
           <%= link_to "More about #{ingredient.item}", edit_ingredient_path(ingredient) %>
         </td>

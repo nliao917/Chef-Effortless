@@ -9,8 +9,9 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <div class="container">
     <%# These classes come from the Bootstrap CSS framework. %>
-    <nav class="navbar navbar-expand-lg bg-primary text-white mb-3">
+    <nav class="navbar navbar-expand-lg bg-primary text-white mb-3 pink-300" >
       <h1 class="title">Chef Effortless</h1>
     </nav>
     <div class="container">
@@ -19,6 +20,7 @@
       <main id="main">
         <%= yield %>
       </main>
+    </div>
     </div>
   </body>
 </html>

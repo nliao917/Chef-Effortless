@@ -1,6 +1,14 @@
 <!--  This file is app/views/movies/index.html.erb -->
-<h2>Welcome to Chef Effortless</h2>
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Welcome!</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+    <p class="card-text">Add more ingredients or explore new recipes!</p>
+<%= link_to "Ingredient", ingredients_path, :class => 'btn btn-primary' %>
+<%= link_to "Recipe",recipe_index_path, :class => 'btn btn-primary' %>
+  </div>
+</div>
 
 
-<%= link_to "Check your ingredient", ingredients_path, :class => 'btn btn-primary' %>
-<%= link_to "Check your recipe",recipe_index_path, :class => 'btn btn-primary' %>
+
