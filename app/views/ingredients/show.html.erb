@@ -1,19 +1,19 @@
-<!--  app/views/movies/show.html.erb -->
-<h2>Details about <em><%= @ingredient.item %></em></h2>
 
-<ul id="details">
-  <li>
-    Quantity:
-    <%= @ingredient.quantity %>
-  </li>
-  <li>
-    Expiration Date:
-    <%= @movie.expiration_date.strftime("%B %d, %Y") %>
-  </li>
-</ul>
 
-<div class="row">
-  <%= link_to 'Edit', edit_ingredient_path(@ingredient), :class => 'btn btn-primary col-2' %>
-  <%= link_to 'Delete', ingredient_path(@ingredient), 'data-method' => 'delete', 'data-confirm' => 'Are you sure?', :class => 'btn btn-danger col-2' %>
-  <%= link_to 'Back to ingredient list', ingredients_path, :class => 'btn btn-primary col-2' %>
+<!--     <div class="container">
+    <%# These classes come from the Bootstrap CSS framework. %>
+    <nav class="navbar navbar-expand-lg bg-primary text-white mb-3 pink-300" >
+      <h1 class="title"><%= @ingredient.item %></h1>
+    </nav>
+    <div class="container">
+ -->
+  <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= @ingredient.item %></h5>
+    <p class="card-text">Quantity:<%= @ingredient.quantity %></p>
+<a href="/ingredients" class="card-link">Back to List</a>
+  </div>
 </div>
+
+<!--  This file is app/views/movies/index.html.erb -->
+
