@@ -1,5 +1,6 @@
 Rottenpotatoes::Application.routes.draw do
+  get 'recipe/index'
+
   resources :ingredients
-  # map '/' to be a redirect to '/movies'
-  root :to => redirect('/ingredients')
+  root to: "welcome#index"
 end
