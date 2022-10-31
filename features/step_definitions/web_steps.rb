@@ -57,13 +57,21 @@ When /^(?:|I )follow "([^"]*)"$/ do |link|
   click_link(link)
 end
 
+# When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
+#   fill_in(field, :with => value)
+# end
+
+# When /^(?:|I )fill in "([^"]*)" for "([^"]*)"$/ do |value, field|
+#   fill_in(field, :with => value)
+# end
+
 When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
-  fill_in(field, :with => value)
+  select(value, :from => field)
 end
 
-When /^(?:|I )fill in "([^"]*)" for "([^"]*)"$/ do |value, field|
-  fill_in(field, :with => value)
-end
+# When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |value, field|
+#   select(value, :from => field)
+# end
 
 # Use this to fill in an entire form with data from a table. Example:
 #

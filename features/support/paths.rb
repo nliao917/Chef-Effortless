@@ -13,7 +13,17 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
-    when /^the (RottenPotatoes )?home\s?page$/ then '/movies'
+    # when /^the (RottenPotatoes )?home\s?page$/ then '/movies'
+
+    when /^the index\s?page$/ then '/'
+
+    when /^the edit page for "(.*)"$/i
+      edit_ingredient_path(Ingredient.find_by_item($1))
+
+    when /^the detail\s?page for "(.*)"$/i
+      ingredient_path(Ingredient.find_by_item($1))
+
+
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

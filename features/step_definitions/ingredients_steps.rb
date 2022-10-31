@@ -1,8 +1,8 @@
-# Given /the following movies exist/ do |movies_table|
-#   movies_table.hashes.each do |movie|
-#     Movie.create movie
-#   end
-# end
+Given /the following ingredients exist/ do |ingredients_table|
+  ingredients_table.hashes.each do |ingredient|
+    Ingredient.create ingredient
+  end
+end
 
 # Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
 #   #  ensure that that e1 occurs before e2.
@@ -22,4 +22,6 @@
 #     step %{I should see "#{movie.title}"}
 #   end
 # end
+
+
 
