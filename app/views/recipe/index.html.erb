@@ -1,5 +1,18 @@
 <h1>Recipe</h1>
 <!-- <p>Find me in app/views/recipe/index.html.erb</p> -->
-<%= @recipes %>
+
+
+<table class="table table-striped col-md-12" id="recipes">
+  <tbody>
+    <% @recipes.each do |recipe| %>
+      <tr>
+        <td>
+          <%= recipe %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <%= link_to "Ingredient", ingredients_path, :class => 'btn btn-primary' %>
 <%= link_to "Main Page", '/', :class => 'btn btn-primary' %>

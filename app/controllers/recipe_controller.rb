@@ -1,12 +1,17 @@
 class RecipeController < ApplicationController
-
   def index
-    if Ingredient.find_by_item('Tomato').quantity>0 and Ingredient.find_by_item('Egg').quantity>0
-      @recipes = "Tomato Egg"
+    @recipes =[]
+    if Ingredient.find_quantity('Tomato') >0 and Ingredient.find_quantity('Egg') >0
+      @recipes.push("scambled egg")
     end
+    if Ingredient.find_quantity('Beef') >0 and  Ingredient.find_quantity('Potato') >0
+      @recipes.push("Beef over Potato")
+    end
+    
   end
 
   def recipe_params
-    params.require(:recipes)
+    params.require(:recipe)
   end
+
 end
