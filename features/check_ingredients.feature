@@ -1,6 +1,6 @@
 Feature: Use can check ingredients 
 Scenario: Check current ingredients
-Given I am on the index page
+Given I am on the welcome index page
 When I follow "Check your ingredient”
 Then I should be on the Ingredients page
 And I should see “Potato”

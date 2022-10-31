@@ -1,6 +1,6 @@
 Feature: Use can update ingredients 
 Scenario: Update Ingredients
-When I am on the ingredient page 
+When I am on the ingredients page 
 And I follow “Potato”
 Then I should be on the detail page for “Potato”
 And I fill in “Quantity”with 3

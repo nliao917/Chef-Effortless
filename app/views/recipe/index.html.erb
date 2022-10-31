@@ -1,2 +1,5 @@
-<h1>Recipe#index</h1>
-<p>Find me in app/views/recipe/index.html.erb</p>
+<h1>Recipe</h1>
+<!-- <p>Find me in app/views/recipe/index.html.erb</p> -->
+<%= @recipes %>
+<%= link_to "Ingredient", ingredients_path, :class => 'btn btn-primary' %>
+<%= link_to "Main Page", '/', :class => 'btn btn-primary' %>
