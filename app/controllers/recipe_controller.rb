@@ -26,7 +26,7 @@ class RecipeController < ApplicationController
       item.item
     end
     key = ss.join(',')
-    num = 1
+    num = 5
     site = "https://api.spoonacular.com/recipes/findByIngredients"
 
 
