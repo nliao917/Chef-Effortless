@@ -2,8 +2,11 @@
 # Team members
 
 Alexandra Cheng (yc3492)
+
 Ruqian Wang (rw2918)
+
 Wen Chen (wc2787)
+
 Nan Liao (nl2783)
 
 # Setup
