@@ -21,7 +21,8 @@ Scenario: Get recommendation
 Given I am on the index page
 When I follow "Create Recipe"
 Then I should be on the recipe index page
-Then I should see "Beef over Potato"
+#Then I should see "Beef over Potato"
+Then I should see "Mexican Stuffed Potatoes"
 And I should not see "Scambled Egg"
 
 Scenario: Update Ingredients

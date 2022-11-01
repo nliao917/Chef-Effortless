@@ -5,6 +5,8 @@ gem 'rails', '4.2.10'
 gem 'pg', '~> 0.15'
 gem 'rails_12factor'
 
+gem 'httparty'
+
 
 # for Heroku deployment 
 group :development, :test do

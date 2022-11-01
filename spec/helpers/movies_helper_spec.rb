@@ -10,6 +10,16 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe RecipeHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe MoviesHelper, type: :helper do
+  describe "test movie helper" do
+    it "equal odd" do
+      v = oddness(1)
+      expect(v).to eq("odd")
+    end
+
+    it "equal even" do
+      v = oddness(2)
+      expect(v).to eq("even")
+    end
+  end
 end
