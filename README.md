@@ -16,11 +16,11 @@ Instructions:
 
 1. To run the webserver, first fork this repository 
 
-        git clone `https://github.com/nliao917/Chef-Effortless`
+        git clone https://github.com/nliao917/Chef-Effortless
 
 2. Run
 
-        `bundle install --without production`
+        bundle install --without production
 
 3. If running into issues regarding gem/bundle version (run a or b):
 
