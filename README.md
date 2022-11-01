@@ -44,6 +44,11 @@ Branch: main
 4. Then to set up the database:
 
         rake db:setup
+   
+   OR
+        rake db:migrate
+
+        rake db:seed
 
 5. Run it on the server
 
