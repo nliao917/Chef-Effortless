@@ -45,9 +45,10 @@ Branch: main
 
         rake db:setup
    
-   OR
-        rake db:migrate
+   OR 
 
+        rake db:migrate
+        
         rake db:seed
 
 5. Run it on the server
