@@ -2,16 +2,16 @@
 <!-- <p>Find me in app/views/recipe/index.html.erb</p> -->
 
 <!-- make selections -->
-<%= form_tag recipe_index_path(@recipe), :method => :put do %>
+<%= form_tag recipe_index_path(), :method => :get, id: 'p' do %>
   <%= label :recipe, :cuisine, 'Cuisine', :class => 'col-form-label'  %>
-  <%= select :recipe, :cuisine,options_for_select(['American', 'British', 'Chinese', 'French', 'German', 'Greek', 'Italian', 'Japanese', 'Jewish', 'Korean', 'Mexican', 'Spanish', 'Thai', 'Vietnamese']), :class => 'form-control' %>
+  <%= select :recipe, :cuisine,options_for_select(['Any', 'American', 'British', 'Chinese', 'French', 'German', 'Greek', 'Italian', 'Japanese', 'Jewish', 'Korean', 'Mexican', 'Spanish', 'Thai', 'Vietnamese']), :class => 'form-control' %>
 
 
   <%= label :recipe, :diet, 'Diet', :class => 'col-form-label'  %>
   <%= select :recipe, :diet,options_for_select(['Any', 'Lacto Vegetarian', 'Ovo Vegetarian', 'Paleo', 'Pescetarian', 'Primal', 'Vegan', 'Vegetarian', 'Ketogenic', 'Whole 30']), :class => 'form-control' %>
 
-  <%= label :recipe, :intolerance, 'Intolerance', :class => 'col-form-label'  %>
-  <%= select :recipe, :intolerance,options_for_select(['Dairy', 'Egg', 'Gluten', 'Grains', 'Peanut', 'Seafood', 'Sesame', 'Shellfish', 'Soy', 'Sulfite',  'Tree Nut', 'Wheat']), :class => 'form-control' %>
+  <%= label :recipe, :intolerances, 'Intolerance', :class => 'col-form-label'  %>
+  <%= select :recipe, :intolerances, options_for_select(['None', 'Dairy', 'Egg', 'Gluten', 'Grains', 'Peanut', 'Seafood', 'Sesame', 'Shellfish', 'Soy', 'Sulfite',  'Tree Nut', 'Wheat']), :class => 'form-control' %>
 
 
   <%= label :recipe, :occasion, 'Occasion', :class => 'col-form-label'  %>
@@ -19,7 +19,7 @@
 
 
   <%= label :recipe, :time, 'Time', :class => 'col-form-label'  %>
-  <%= select :recipe, :time, options_for_select(['under 10 min','under 20 min','under 30 min','under 1 hr']), :class => 'form-control' %>
+  <%= select :recipe, :time, options_for_select(['Any', 'under 10 min','under 20 min','under 30 min','under 1 hr']), :class => 'form-control' %>
 
   <%= submit_tag 'Update User Preference', :class => 'btn btn-primary' %>
 <% end %>

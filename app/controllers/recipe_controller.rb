@@ -25,11 +25,28 @@ class RecipeController < ApplicationController
     ss = items.map do |item|
       item.item
     end
+    print(params['recipe'])
+
     key = ss.join(',')
     num = 5
     site = "https://api.spoonacular.com/recipes/findByIngredients"
 
+    # q = params['recipe']
+    #  q['time'] != 'Any'
+    #   key = "maxReadyTime"
+    #   value = q['time'].split(' ')[1].to_i
+    #   if value == 1
+    #     value = 60
+    #   end
+    #   q[key]=value
+    # end
 
+
+    # q['ingredients'] = key
+    # q['number'] = num
+    # q['apiKey'] = @@apiKey
+    # print('q')
+    # print(q)
     objs = HTTParty.get(site, {query: {ingredients: key, number: num, apiKey: @@apiKey}, header: {'Content-Type' => 'application/json'}}).parsed_response
 
     return objs 
