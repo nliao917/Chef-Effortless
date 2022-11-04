@@ -4,7 +4,7 @@
 <!-- make selections -->
 <%= form_tag recipe_index_path(), :method => :get, id: 'p' do %>
   <%= label :recipe, :cuisine, 'Cuisine', :class => 'col-form-label'  %>
-  <%= select :recipe, :cuisine,options_for_select(['Any', 'American', 'British', 'Chinese', 'French', 'German', 'Greek', 'Italian', 'Japanese', 'Jewish', 'Korean', 'Mexican', 'Spanish', 'Thai', 'Vietnamese']), :class => 'form-control' %>
+  <%= select :recipe, :cuisine, options_for_select(['Any', 'American', 'British', 'Chinese', 'French', 'German', 'Greek', 'Italian', 'Japanese', 'Jewish', 'Korean', 'Mexican', 'Spanish', 'Thai', 'Vietnamese']), :class => 'form-control' %>
 
 
   <%= label :recipe, :diet, 'Diet', :class => 'col-form-label'  %>
