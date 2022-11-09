@@ -5,7 +5,7 @@
 #   gem 'sqlite3'
 development:
   adapter: postgresql
-  database: nanliao
+  database: wenchen
   username: postgres
   password: postgres
   host: localhost
