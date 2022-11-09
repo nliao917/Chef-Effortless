@@ -1,13 +1,30 @@
 <h1>Recipe</h1>
 <!-- <p>Find me in app/views/recipe/index.html.erb</p> -->
 
+<h2>Condition</h2>
+<%= form_tag recipe_index_path, :method => :get do %>
+  <%= label :condition, :cuisine, 'Cuisine', :class => 'col-form-label'  %>
+  <%= select :condition, :cuisine, options_for_select(['Any', 'Chinese','Japanese','Italian','Mexican'], @filters[:cuisine]), :class => 'form-control' %>
+  <br/>
+  <%= label :condition, :intolerances, 'Intolerance', :class => 'col-form-label'  %>
+  <%= select :condition, :intolerances, options_for_select(['Any'], @filters[:intolerances]), :class => 'form-control' %>
+  <br/>
+  <%= label :condition, :diet, 'Diet', :class => 'col-form-label'  %>
+  <%= select :condition, :diet, options_for_select(['Any'], @filters[:diet]), :class => 'form-control' %>
+  <br/>
+  <%= label :condition, :type, 'Meal-Type', :class => 'col-form-label'  %>
+  <%= select :condition, :type, options_for_select(['Any'], @filters[:type]), :class => 'form-control' %>
+  <br/>
+  <%= submit_tag 'Search', :class => 'btn btn-primary' %>
+<% end %>
 
 <table class="table table-striped col-md-12" id="recipes">
   <tbody>
     <% @recipes.each do |recipe| %>
       <tr>
         <td>
-          <%= recipe %>
+          <%= recipe['title'] %>
+          <%= link_to 'Detail', recipe_path, :title => recipe['title'], :class => 'btn btn-secondary' %>
         </td>
       </tr>
     <% end %>
