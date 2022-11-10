@@ -25,7 +25,6 @@ class RecipeController < ApplicationController
     ss = items.map do |item|
       item.item
     end
-    # print(params['recipe'])
 
     key = ss.join(',')
     num = 5
