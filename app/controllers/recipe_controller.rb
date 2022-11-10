@@ -79,6 +79,39 @@ class RecipeController < ApplicationController
   end
 
 
+  def call_service(items)
+    ss = items.map do |item|
+      item.item
+    end
+
+    # print(params['recipe'])
+    if not params.keys().include?("recipe")
+      params["recipe"]={"cuisine"=>"Any", "diet"=>"Any", "intolerances"=>"None", "occasion"=>"Any", "time"=>"Any"}
+    end
+
+    key = ss.join(',')
+    num = 5
+    site = "https://api.spoonacular.com/recipes/findByIngredients"
+    objs = HTTParty.get(site, {query: {ingredients: key, number: num, apiKey: @@apiKey}, header: {'Content-Type' => 'application/json'}}).parsed_response
+
+    recipe_list = []
+
+
+    # more info about objs
+    objs.each do |obj|
+      info = HTTParty.get("https://api.spoonacular.com/recipes/"+obj['id'].to_s+"/information", {query: {apiKey: @@apiKey}}) 
+    #   # score ranking list display
+    #   # ready_time = info["readyInMinutes"]
+      recipe_list.append([info["title"], info["cuisines"], info["diets"], info["occasions"], info["readyInMinutes"], score(info)])
+    #   # puts(info.keys().include?("score"))
+    #   # obj["score"] = score(info)
+    #   # add score as key
+    #   obj["score"] = score(info)
+    end
+
+
+    return recipe_list
+  end
 
 
   def get_recipes
