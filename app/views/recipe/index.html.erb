@@ -19,7 +19,7 @@
 
 
   <%= label :recipe, :time, 'Time', :class => 'col-form-label'  %>
-  <%= select :recipe, :time, options_for_select(['Any', 'under 10 min','under 20 min','under 30 min','under 1 hr']), :class => 'form-control' %>
+  <%= select :recipe, :time, options_for_select(['Any','under 10 min','under 20 min','under 30 min','under 40 min','under 50 min','under 60 min']), :class => 'form-control' %>
 
   <%= submit_tag 'Update User Preference', :class => 'btn btn-primary' %>
 <% end %>
