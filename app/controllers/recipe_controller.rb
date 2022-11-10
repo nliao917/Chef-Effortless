@@ -1,6 +1,6 @@
 class RecipeController < ApplicationController
-  # @@apiKey = "7f274a56343748968771ed0642f79c6c"
-  @@apiKey = "2e644af47d964b57a970710eec23c5bb"
+  @@apiKey = "7f274a56343748968771ed0642f79c6c"
+  # @@apiKey = "2e644af47d964b57a970710eec23c5bb"
 
   def index
     @recipes =[]
@@ -119,4 +119,8 @@ class RecipeController < ApplicationController
     return call_service(items)
 
   end
+
+  # def ingredient_params
+  #   params.require(@recipes).permit(:title, :cuisines, :diets,:occasions,:readyInMinutes)
+  # end
 end
