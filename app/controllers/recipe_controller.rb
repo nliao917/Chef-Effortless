@@ -11,8 +11,8 @@ class RecipeController < ApplicationController
   # @@apiKey = "2f0cb560447f48f6a6c3d12efee50385"
   @@apiKey = "fa6f5860fc5c4706bac0c44362038232"
   # @@apiKey = "c2c323be3715495098a70f097b74144d"
-  # @@apiKey = "5b3ec929ab684d1cb2b060f5b7eb2245“
-  # @@apiKey = "0578306e10a44e4bae97ee439fefc5ae“
+  # @@apiKey = "5b3ec929ab684d1cb2b060f5b7eb2245"
+  # @@apiKey = "0578306e10a44e4bae97ee439fefc5ae"
   @@tags = [:cuisine, :intolerances, :diet, :type]
 
 
@@ -44,9 +44,9 @@ class RecipeController < ApplicationController
     # puts @recipes
   end
 
-  def recipe_params
-    params.require(:recipe)
-  end
+  # def recipe_params
+  #   params.require(:recipe)
+  # end
 
   #def load_recipe(title) 
   #  obj = nil
@@ -123,17 +123,16 @@ class RecipeController < ApplicationController
 
 
   def call_service(items)
-    ss = items.map do |item|
+    @@ss = items.map do |item|
       item.item.downcase
     end
-    @@ss = ss.clone
     
     if not params.keys().include?("recipe")
       params["recipe"]={"cuisine"=>"Any", "diet"=>"Any", "intolerances"=>"None", "occasion"=>"Any", "time"=>"Any"}
     end
 
-    key = ss.join(',')
-    num = 5
+    key = @@ss.join(',')
+    num = 2
     site = "https://api.spoonacular.com/recipes/findByIngredients"
 
     query_param = {ingredients: key, number: num, apiKey: @@apiKey}
