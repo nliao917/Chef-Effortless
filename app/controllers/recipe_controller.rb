@@ -4,9 +4,10 @@ require "base64"
 
 class RecipeController < ApplicationController
   #@@apiKey = "7f274a56343748968771ed0642f79c6c"
-  @@apiKey = "2e644af47d964b57a970710eec23c5bb"
+  # @@apiKey = "2e644af47d964b57a970710eec23c5bb"
   # @@apiKey = "06c5643caf1b4d4fb78fa436b127b236"
-  # @@apiKey = "7f274a56343748968771ed0642f79c6c"
+  # @@apiKey = "2f0cb560447f48f6a6c3d12efee50385"
+  @@apiKey = "fa6f5860fc5c4706bac0c44362038232"
   @@tags = [:cuisine, :intolerances, :diet, :type]
 
 
@@ -30,12 +31,12 @@ class RecipeController < ApplicationController
     @recipes =[]
     @filters = {}
     @@tags.each do | item |
-      puts item
+      # puts item
       @filters[item] = 'Any'
     end
     # puts @filters
     @recipes = get_recipes.sort_by { |el| -el[5] }
-    puts @recipes
+    # puts @recipes
   end
 
   def recipe_params
@@ -71,7 +72,7 @@ class RecipeController < ApplicationController
   
     final_score += (@@ss & @@ingredient_list).size * 0.5
 
-    if not params["recipe"]["cuisine"] == "Any"
+    if not params["recipe"]["cuisine"] == "Any"  and not recipe["cuisine"]==nil
       if recipe["cuisines"].include?(params["recipe"]["cuisine"])
         final_score += 1
       else
@@ -79,7 +80,7 @@ class RecipeController < ApplicationController
       end
     end
 
-    if not params["recipe"]["diet"] == "Any"
+    if not params["recipe"]["diet"] == "Any" and not recipe["diet"]==nil
       if recipe["diets"].include?(params["recipe"]["diets"])
         final_score += 1
       else
@@ -87,15 +88,15 @@ class RecipeController < ApplicationController
       end
     end
     
-    if not params["recipe"]["intolerances"] == "None"
-      if recipe["intolerances"]!=nil and recipe["intolerances"].include?(params["recipe"]["intolerances"])
+    if not params["recipe"]["intolerances"] == "None" and not recipe["intolerances"]==nil
+      if recipe["intolerances"].include?(params["recipe"]["intolerances"])
         final_score += 1
       else
         final_score -= 1
       end
     end
       
-    if not params["recipe"]["occasion"] == "Any"
+    if not params["recipe"]["occasion"] == "Any" and not recipe["occasion"]==nil
       if recipe["occasions"].include?(params["recipe"]["occasion"])
         final_score += 1
       else
@@ -103,7 +104,7 @@ class RecipeController < ApplicationController
       end
     end
 
-    if not params["recipe"]["time"] == "Any"
+    if not params["recipe"]["time"] == "Any" and not recipe["time"]==nil
       if recipe["readyInMinutes"] <= params["recipe"]["time"].split()[1].to_i()
         final_score += 1
       else
@@ -145,14 +146,10 @@ class RecipeController < ApplicationController
 
     # puts query_param
 
-
-
     objs = HTTParty.get(site, {query: query_param, header: {'Content-Type' => 'application/json'}}).parsed_response
     # puts objs
 
     recipe_list = []
-    ingredient_list = []
-
     # more info about objs
     objs.each do |obj|
       info = HTTParty.get("https://api.spoonacular.com/recipes/"+obj['id'].to_s+"/information", {query: {apiKey: @@apiKey}}) 
