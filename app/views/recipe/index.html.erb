@@ -1,5 +1,7 @@
-<h1>Recipe</h1>
-<!-- <p>Find me in app/views/recipe/index.html.erb</p> -->
+<div>
+<%= form_tag recipe_index_path(), :method => :get, id: 'p' do %>
+  <%= label :recipe, :cuisine, 'Cuisine', :class => 'col-form-label'  %>
+  <%= select :recipe, :cuisine, options_for_select(['Any', 'American', 'British', 'Chinese', 'French', 'German', 'Greek', 'Italian', 'Japanese', 'Jewish', 'Korean', 'Mexican', 'Spanish', 'Thai', 'Vietnamese']), :class => 'form-control' %>
 
 <h2>Condition</h2>
 <%= form_tag recipe_index_path, :method => :get do %>
@@ -18,6 +20,75 @@
   <%= submit_tag 'Search', :class => 'btn btn-primary' %>
 <% end %>
 
+  <%= label :recipe, :diet, 'Diet', :class => 'col-form-label'  %>
+  <%= select :recipe, :diet,options_for_select(['Any', 'Lacto Vegetarian', 'Ovo Vegetarian', 'Paleo', 'Pescetarian', 'Primal', 'Vegan', 'Vegetarian', 'Ketogenic', 'Whole 30']), :class => 'form-control' %>
+
+  <%= label :recipe, :intolerances, 'Intolerance', :class => 'col-form-label'  %>
+  <%= select :recipe, :intolerances, options_for_select(['None', 'Dairy', 'Egg', 'Gluten', 'Grains', 'Peanut', 'Seafood', 'Sesame', 'Shellfish', 'Soy', 'Sulfite',  'Tree Nut', 'Wheat']), :class => 'form-control' %>
+
+
+  <%= label :recipe, :occasion, 'Occasion', :class => 'col-form-label'  %>
+  <%= select :recipe, :occasion,options_for_select(['Any', 'Birthday', 'Christmas', 'Halloween', "New Year's Eve", 'Thanksgiving', "Valentine's Day"]), :class => 'form-control' %>
+
+
+  <%= label :recipe, :time, 'Time', :class => 'col-form-label'  %>
+  <%= select :recipe, :time, options_for_select(['Any','under 10 min','under 20 min','under 30 min','under 40 min','under 50 min','under 60 min']), :class => 'form-control' %>
+
+  <%= submit_tag 'Update User Preference', :class => 'btn btn-primary' %>
+<% end %>
+</div>
+
+<%#  Part 2: Start here... %>
+<div class="hero_image" class="d-flex align-items-center " style="height:700px; width: 100%;border:1px solid black; background-image: url(<%= 'https://source.unsplash.com/Q7PclNhVRI0' %>);background-size: cover;background-position: center;background-attachment:fixed;
+    overflow:scroll;">
+<table class="table table-striped col-md-12 align-self-center ml-4 mt-3" id="ingredients" style="width: 100%;">
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Steps</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipes.each do |recipe| %>
+      <tr>
+        <td>
+          <%= recipe[0]%>
+          <% if !recipe[1].empty?%>
+          <% recipe[1].each do |type| %>
+            <button class="btn btn-secondary"><%= type%></button>
+            <%end%>
+          <% end %>
+          <% if !recipe[2].empty?%>
+          <% recipe[2].each do |type| %>
+            <button class="btn btn-secondary"><%= type%></button>
+            <%end%>
+          <% end %>
+          <% if !recipe[3].empty?%>
+          <% recipe[3].each do |type| %>
+            <button class="btn btn-secondary"><%= type%></button>
+            <%end%>
+          <% end %>
+
+          <% if !recipe[4].nil?%>
+            <button class="btn btn-secondary"><%= recipe[4]%></button>
+          <% end %>
+        </td>
+        <td>
+
+          step link?
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+
+<!-- 
 <table class="table table-striped col-md-12" id="recipes">
   <tbody>
     <% @recipes.each do |recipe| %>
@@ -26,10 +97,11 @@
           <%= recipe['title'] %>
           <%= link_to 'Detail', recipe_path(recipe['title']), :class => 'btn btn-secondary' %>
         </td>
+
       </tr>
     <% end %>
   </tbody>
-</table>
+</table> -->
 
-<%= link_to "Ingredient", ingredients_path, :class => 'btn btn-primary' %>
-<%= link_to "Main Page", '/', :class => 'btn btn-primary' %>
+<!-- <%= link_to "Ingredient", ingredients_path, :class => 'btn btn-primary' %>
+<%= link_to "Main Page", '/', :class => 'btn btn-primary' %> -->

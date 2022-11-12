@@ -1,10 +1,18 @@
-<h2>Edit Existing Ingredient</h2>
+<div class="hero_image" class="d-flex align-items-center " style="height:700px; width: 100%;border:1px solid black; background-image: url(<%= 'https://source.unsplash.com/qJQcpKHtkJI' %>);background-size: cover;background-position: center">
+
+<div class="d-flex p-2 bd-highlight">
+  <div class="d-flex justify-content-around" style="width:380px;height:380px;border-style: none;background-color: transparent;">
+  </div>
+<div class="card d-flex justify-content-around" style="width: 600px;height:800px;border-style: none;background-color: transparent;">
 <%= form_tag ingredient_path(@ingredient), :method => :put do %>
   <%= label :ingredient, :quantity, 'Quantity', :class => 'col-form-label'  %>
   <%= select :ingredient, :quantity,options_for_select([0,1,2,3,4,5]), :class => 'form-control' %>
 <!--   <%= label :ingredient, :expiration_date, 'Expiration Date', :class => 'col-form-label'  %>
   <%= date_select :ingredient, :expiration_date, {}, :class => 'form-control col-2 d-inline' %>
    --><br/>
-  <%= submit_tag 'Update Ingredient Info', :class => 'btn btn-primary' %>
+  <%= submit_tag 'Update Ingredient Info', :class => 'btn btn-secondary' %>
   <%= link_to 'Cancel', ingredients_path, :class => 'btn btn-secondary' %>
 <% end %>
+</div>
+</div>
+</div>

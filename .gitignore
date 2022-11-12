@@ -8,4 +8,3 @@ lib/tasks/
 log/
 tmp/
 vendor/bundle
-config/database.yml
