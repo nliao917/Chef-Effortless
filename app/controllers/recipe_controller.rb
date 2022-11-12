@@ -1,7 +1,6 @@
 require "json"
 require "base64"
 
-
 class RecipeController < ApplicationController
   ##这个不要用！！！！##
   #@@apiKey = "7f274a56343748968771ed0642f79c6c"
@@ -15,33 +14,17 @@ class RecipeController < ApplicationController
   # @@apiKey = "0578306e10a44e4bae97ee439fefc5ae"
   @@tags = [:cuisine, :intolerances, :diet, :type]
 
-
   def show
-    # puts "show"
-    # puts params
-
-    #@obj = load_recipe(params[:title])
-    objs = get_recipes
+    objs = get_recipes[1]
     targets = objs.select do |item|
       item['title'] == params[:title]
     end
-
     @obj = objs[0]
   end
 
-  @@ss = []
-  @@ingredient_list = []
 
   def index
-    @recipes =[]
-    @filters = {}
-    @@tags.each do | item |
-      # puts item
-      @filters[item] = 'Any'
-    end
-    # puts @filters
-    @recipes = get_recipes.sort_by { |el| -el[5] }
-    # puts @recipes
+    @recipes = get_recipes[1].sort_by { |el| -el[5] }
   end
 
   # def recipe_params
@@ -72,12 +55,13 @@ class RecipeController < ApplicationController
   #    f.write(content)
   #  end
   #end
+
   def score(recipe)
     final_score = 0
   
-    final_score += (@@ss & @@ingredient_list).size * 0.5
+    final_score += (@@ss & @@api_list).size * 0.5
 
-    if not params["recipe"]["cuisine"] == "Any"  and not recipe["cuisine"]==nil
+    if not params["recipe"]["cuisine"] == "Any" and not recipe["cuisine"]==nil
       if recipe["cuisines"].include?(params["recipe"]["cuisine"])
         final_score += 1
       else
@@ -122,7 +106,9 @@ class RecipeController < ApplicationController
   end
 
 
-  def call_service(items)
+  def get_recipes
+    items = get_ingredients
+
     @@ss = items.map do |item|
       item.item.downcase
     end
@@ -134,8 +120,8 @@ class RecipeController < ApplicationController
     key = @@ss.join(',')
     num = 2
     site = "https://api.spoonacular.com/recipes/findByIngredients"
-
     query_param = {ingredients: key, number: num, apiKey: @@apiKey}
+
     #condition_param = params[:condition]
     #if condition_param
     #  @@tags.each do | item |
@@ -151,28 +137,27 @@ class RecipeController < ApplicationController
     # puts query_param
 
     objs = HTTParty.get(site, {query: query_param, header: {'Content-Type' => 'application/json'}}).parsed_response
-    # puts objs
 
+    @@api_list = []
     recipe_list = []
-    # more info about objs
+
     objs.each do |obj|
       info = HTTParty.get("https://api.spoonacular.com/recipes/"+obj['id'].to_s+"/information", {query: {apiKey: @@apiKey}}) 
       exts = info["extendedIngredients"]
+
       exts.each do |ext|
-        @@ingredient_list.append(ext["name"])
+        @@api_list.append(ext["name"])
       end
+
       recipe_list.append([info["title"], info["cuisines"], info["diets"], info["occasions"], info["readyInMinutes"], score(info)])
     end
-    return recipe_list
+
+    return @@api_list, recipe_list
   end
 
-
-  def get_recipes
-    items = Ingredient.where("quantity > 0")
-    return call_service(items)
-
+  def get_ingredients
+    return Ingredient.where("quantity > 0")
   end
-
 
   # def ingredient_params
   #   params.require(@recipes).permit(:title, :cuisines, :diets,:occasions,:readyInMinutes)
