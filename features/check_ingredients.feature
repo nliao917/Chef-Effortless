@@ -33,3 +33,15 @@ And I fill in "Quantity" with "3"
 Then I press "Update Ingredient Info"
 And I follow "Back to List"
 Then I should be on the ingredients page
+
+Scenario: User can cancel their update
+When I am on the ingredients page 
+And I follow "More about Tomato"
+Then I should be on the edit page for "Tomato"
+And I follow "Cancel"
+Then I should be on the ingredients page
+
+Scenario: User can go back to the index page
+When I am on the ingredients page 
+And I follow "Chef Effortless"
+Then I should be on the index page

@@ -22,3 +22,15 @@ When I fill in "Diet" with "Vegan"
 When I press "Update User Preference"
 Then I should see "Salad"
 And I should not see "Kongpao chicken"
+
+Scenario: User can update intolerance 
+Given I am on the recipe index page
+And I fill in "Intolerance" with "Egg"
+And I press "Update User Preference"
+Then I should see "..."
+And I should not see "..."
+
+Scenario: User can go back to the index page
+Given I am on the recipe index page
+And I follow "Chef Effortless"
+Then I should be on the index page
