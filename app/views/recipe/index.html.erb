@@ -2,8 +2,6 @@
 <%= form_tag recipe_index_path(), :method => :get, id: 'p' do %>
   <%= label :recipe, :cuisine, 'Cuisine', :class => 'col-form-label'  %>
   <%= select :recipe, :cuisine, options_for_select(['Any', 'American', 'British', 'Chinese', 'French', 'German', 'Greek', 'Italian', 'Japanese', 'Jewish', 'Korean', 'Mexican', 'Spanish', 'Thai', 'Vietnamese']), :class => 'form-control' %>
-
-<h2>Condition</h2>
 <%= form_tag recipe_index_path, :method => :get do %>
   <%= label :condition, :cuisine, 'Cuisine', :class => 'col-form-label'  %>
   <%= select :condition, :cuisine, options_for_select(['Any', 'Chinese','Japanese','Italian','Mexican'], @filters[:cuisine]), :class => 'form-control' %>
@@ -88,20 +86,6 @@
 
 
 
-<!-- 
-<table class="table table-striped col-md-12" id="recipes">
-  <tbody>
-    <% @recipes.each do |recipe| %>
-      <tr>
-        <td>
-          <%= recipe['title'] %>
-          <%= link_to 'Detail', recipe_path(recipe['title']), :class => 'btn btn-secondary' %>
-        </td>
-
-      </tr>
-    <% end %>
-  </tbody>
-</table> -->
 
 <!-- <%= link_to "Ingredient", ingredients_path, :class => 'btn btn-primary' %>
 <%= link_to "Main Page", '/', :class => 'btn btn-primary' %> -->
