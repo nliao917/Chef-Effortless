@@ -1,23 +1,5 @@
 <div>
 <%= form_tag recipe_index_path(), :method => :get, id: 'p' do %>
-  <%= label :recipe, :cuisine, 'Cuisine', :class => 'col-form-label'  %>
-  <%= select :recipe, :cuisine, options_for_select(['Any', 'American', 'British', 'Chinese', 'French', 'German', 'Greek', 'Italian', 'Japanese', 'Jewish', 'Korean', 'Mexican', 'Spanish', 'Thai', 'Vietnamese']), :class => 'form-control' %>
-<%= form_tag recipe_index_path, :method => :get do %>
-  <%= label :condition, :cuisine, 'Cuisine', :class => 'col-form-label'  %>
-  <%= select :condition, :cuisine, options_for_select(['Any', 'Chinese','Japanese','Italian','Mexican'], @filters[:cuisine]), :class => 'form-control' %>
-  <br/>
-  <%= label :condition, :intolerances, 'Intolerance', :class => 'col-form-label'  %>
-  <%= select :condition, :intolerances, options_for_select(['Any'], @filters[:intolerances]), :class => 'form-control' %>
-  <br/>
-  <%= label :condition, :diet, 'Diet', :class => 'col-form-label'  %>
-  <%= select :condition, :diet, options_for_select(['Any'], @filters[:diet]), :class => 'form-control' %>
-  <br/>
-  <%= label :condition, :type, 'Meal-Type', :class => 'col-form-label'  %>
-  <%= select :condition, :type, options_for_select(['Any'], @filters[:type]), :class => 'form-control' %>
-  <br/>
-  <%= submit_tag 'Search', :class => 'btn btn-primary' %>
-<% end %>
-
   <%= label :recipe, :diet, 'Diet', :class => 'col-form-label'  %>
   <%= select :recipe, :diet,options_for_select(['Any', 'Lacto Vegetarian', 'Ovo Vegetarian', 'Paleo', 'Pescetarian', 'Primal', 'Vegan', 'Vegetarian', 'Ketogenic', 'Whole 30']), :class => 'form-control' %>
 

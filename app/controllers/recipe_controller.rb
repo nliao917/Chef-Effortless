@@ -11,8 +11,8 @@ class RecipeController < ApplicationController
 
 
   def show
-    puts "show"
-    puts params
+    # puts "show"
+    # puts params
 
     #@obj = load_recipe(params[:title])
     objs = get_recipes
@@ -25,24 +25,17 @@ class RecipeController < ApplicationController
 
   @@ss = []
   @@ingredient_list = []
-# >>>>>>> c44dc3fd06def61d056840c3fcddf56946951441
+
   def index
     @recipes =[]
-
     @filters = {}
     @@tags.each do | item |
       puts item
       @filters[item] = 'Any'
     end
-
-    puts @filters
-
-
-    objs = get_recipes
-    objs.each do |obj|
-      @recipes.push(obj)
-    end
-    
+    # puts @filters
+    @recipes = get_recipes.sort_by { |el| -el[5] }
+    puts @recipes
   end
 
   def recipe_params
@@ -74,20 +67,9 @@ class RecipeController < ApplicationController
   #  end
   #end
   def score(recipe)
-    # 80% ingredients
-    # occassion, diets, cuisines, readyTime
-    # default score, 
-    # 
-    cuisine = recipe["cuisines"]
-    diet = recipe["diets"]
-    # intolerance = recipe
-    occasions = recipe["occasions"]
-    readyTime = recipe["readyInMinutes"]
     final_score = 0
   
-    final_score += (@@ss & @@ingredient_list).size*5
-
-    
+    final_score += (@@ss & @@ingredient_list).size * 0.5
 
     if not params["recipe"]["cuisine"] == "Any"
       if recipe["cuisines"].include?(params["recipe"]["cuisine"])
@@ -105,13 +87,13 @@ class RecipeController < ApplicationController
       end
     end
     
-    # if not params["recipe"]["intolerances"] == "None"
-    #   if recipe["intolerances"].include?(params["recipe"]["intolerances"])
-    #     final_score += 1
-    #   else
-    #     final_score -= 1
-    #   end
-    # end
+    if not params["recipe"]["intolerances"] == "None"
+      if recipe["intolerances"]!=nil and recipe["intolerances"].include?(params["recipe"]["intolerances"])
+        final_score += 1
+      else
+        final_score -= 1
+      end
+    end
       
     if not params["recipe"]["occasion"] == "Any"
       if recipe["occasions"].include?(params["recipe"]["occasion"])
@@ -161,15 +143,12 @@ class RecipeController < ApplicationController
     #  end
     #end
 
-    puts query_param
+    # puts query_param
 
 
 
     objs = HTTParty.get(site, {query: query_param, header: {'Content-Type' => 'application/json'}}).parsed_response
-    puts objs
-# =======
-#     objs = HTTParty.get(site, {query: {ingredients: key, number: num, apiKey: @@apiKey}, header: {'Content-Type' => 'application/json'}}).parsed_response
-# >>>>>>> c44dc3fd06def61d056840c3fcddf56946951441
+    # puts objs
 
     recipe_list = []
     ingredient_list = []
@@ -182,11 +161,6 @@ class RecipeController < ApplicationController
         @@ingredient_list.append(ext["name"])
       end
       recipe_list.append([info["title"], info["cuisines"], info["diets"], info["occasions"], info["readyInMinutes"], score(info)])
-      
-    #   # puts(info.keys().include?("score"))
-    #   # obj["score"] = score(info)
-    #   # add score as key
-    #   obj["score"] = score(info)
     end
     return recipe_list
   end
