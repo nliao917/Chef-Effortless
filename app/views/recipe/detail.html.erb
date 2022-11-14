@@ -1,2 +1,39 @@
-<h1>Recipe#detail</h1>
-<p>Find me in app/views/recipe/detail.html.erb</p>
+<h2>
+    <%= @obj['title'] %>
+<h2>
+
+<div>
+    <%= image_tag(@obj['image']) %>
+</div>
+
+<h3> Nutrition </h3>
+<div>
+<table class="table table-striped col-md-12" id="used">
+  <tbody>
+    <tr>
+    <td>
+        name
+    </td>
+    <td>
+        amount
+    </td>
+    <td>
+        unit
+    </td>
+    </tr>
+    <% @obj['nutrition']['nutrients'].each do |item| %>
+      <tr>
+        <td>
+          <%= item['name'] %>
+        </td>
+        <td>
+          <%= item['amount'] %>
+        </td>
+        <td>
+          <%= item['unit'] %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

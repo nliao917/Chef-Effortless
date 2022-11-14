@@ -1,6 +1,7 @@
 Rottenpotatoes::Application.routes.draw do
   get 'recipe/index'
-  get 'recipe/show/:title', to: 'recipe#show', as: 'recipe'
+  get 'recipe/show/:id', to: 'recipe#show', as: 'recipe_show'
+  get 'recipe/detail/:id', to: 'recipe#detail', as: 'recipe_detail'
 
   resources :ingredients
   root to: "welcome#index"

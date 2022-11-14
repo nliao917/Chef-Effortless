@@ -1,14 +1,18 @@
 <div>
 <%= form_tag recipe_index_path(), :method => :get, id: 'p' do %>
+  <%= label :recipe, :cuisine, 'Cusine', :class => 'col-form-label'  %>
+  <%= select :recipe, :cuisine,options_for_select(['Any', 'Mexican']), :class => 'form-control' %>
+
   <%= label :recipe, :diet, 'Diet', :class => 'col-form-label'  %>
-  <%= select :recipe, :diet,options_for_select(['Any', 'Lacto Vegetarian', 'Ovo Vegetarian', 'Paleo', 'Pescetarian', 'Primal', 'Vegan', 'Vegetarian', 'Ketogenic', 'Whole 30']), :class => 'form-control' %>
+  <%= select :recipe, :diet,options_for_select(['Any', 'dairy free', 'Ovo Vegetarian', 'Paleo', 'Pescetarian', 'Primal', 'Vegan', 'Vegetarian', 'Ketogenic', 'Whole 30']), :class => 'form-control' %>
+
 
   <%= label :recipe, :intolerances, 'Intolerance', :class => 'col-form-label'  %>
   <%= select :recipe, :intolerances, options_for_select(['None', 'Dairy', 'Egg', 'Gluten', 'Grains', 'Peanut', 'Seafood', 'Sesame', 'Shellfish', 'Soy', 'Sulfite',  'Tree Nut', 'Wheat']), :class => 'form-control' %>
 
 
   <%= label :recipe, :occasion, 'Occasion', :class => 'col-form-label'  %>
-  <%= select :recipe, :occasion,options_for_select(['Any', 'Birthday', 'Christmas', 'Halloween', "New Year's Eve", 'Thanksgiving', "Valentine's Day"]), :class => 'form-control' %>
+  <%= select :recipe, :occasion,options_for_select(['Any', 'Birthday', 'Christmas', 'Halloween', "New Year's Eve", 'Thanksgiving', "Valentine's Day", 'fall', 'winter']), :class => 'form-control' %>
 
 
   <%= label :recipe, :time, 'Time', :class => 'col-form-label'  %>
@@ -25,6 +29,7 @@
   <thead>
     <tr>
       <th>Item</th>
+      <th>Details</th>
       <th>Steps</th>
     </tr>
   </thead>
@@ -54,8 +59,11 @@
           <% end %>
         </td>
         <td>
+          <%= link_to 'Detail', recipe_detail_path(recipe[6]), :class => 'btn btn-secondary' %>
+        </td>
+        <td>
 
-          step link?
+          <%= link_to 'Steps', recipe_show_path(recipe[6]), :class => 'btn btn-secondary' %>
         </td>
       </tr>
     <% end %>

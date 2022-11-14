@@ -6,34 +6,17 @@
     <%= image_tag(@obj['image']) %>
 </div>
 
-<h3> Own Ingredients </h3>
+<h3> Steps </h3>
 <div>
 <table class="table table-striped col-md-12" id="used">
   <tbody>
-    <% @obj['usedIngredients'].each do |item| %>
+    <% @step[0]['steps'].each do |item| %>
       <tr>
         <td>
-          <%= item['name'] %>
-          <%= image_tag(item['image']) %>
+          <%= item['step'] %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 </div>
-
-<h3> Missing Ingredients </h3>
-<div>
-<table class="table table-striped col-md-12" id="missing">
-  <tbody>
-    <% @obj['missedIngredients'].each do |item| %>
-      <tr>
-        <td>
-          <%= item['name'] %>
-          <%= image_tag(item['image']) %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<div>

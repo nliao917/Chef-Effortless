@@ -12,7 +12,8 @@ Background: ingredients in database
 
 Scenario: Any cuisine style selected
 Given I am on the recipe index page
-Then I should see "Corned Beef Cakes"
+#Then I should see "Corned Beef Cakes"
+Then I should see "Albondigas"
 And I should not see "Beijing Duck"
 
 Scenario: User can get fast-food recommendations
@@ -25,16 +26,18 @@ And I should not see "Buddha Jumps Over the Wall"
 
 Scenario: User can see recipes based on dietary preferences
 Given I am on the recipe index page
-When I fill in "Diet" with "Vegan"
+#When I fill in "Diet" with "Vegan"
+When I fill in "Diet" with "dairy free"
 When I press "Update User Preference"
-Then I should see "Corned Beef Cakes"
+Then I should see "Albondigas"
 And I should not see "Kongpao chicken"
 
 Scenario: User can update intolerance 
 Given I am on the recipe index page
-And I fill in "Intolerance" with "Egg"
+#And I fill in "Intolerance" with "Egg"
+And I fill in "Occasion" with "winter"
 And I press "Update User Preference"
-Then I should see "Stuffed Breakfast Balls"
+Then I should see "Albondigas"
 And I should not see "Kongpao chicken"
 
 Scenario: User can go back to the index page
