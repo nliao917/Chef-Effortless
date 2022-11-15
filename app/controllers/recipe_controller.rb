@@ -5,11 +5,11 @@ class RecipeController < ApplicationController
   ##这个不要用！！！！##
   #@@apiKey = "7f274a56343748968771ed0642f79c6c"
   ##下面的都可以用##
-  @@apiKey = "2e644af47d964b57a970710eec23c5bb"
+  #@@apiKey = "2e644af47d964b57a970710eec23c5bb"
   # @@apiKey = "06c5643caf1b4d4fb78fa436b127b236"
-  # @@apiKey = "2f0cb560447f48f6a6c3d12efee50385"
+  #@@apiKey = "2f0cb560447f48f6a6c3d12efee50385"
   #@@apiKey = "fa6f5860fc5c4706bac0c44362038232"
-  # @@apiKey = "c2c323be3715495098a70f097b74144d"
+  @@apiKey = "c2c323be3715495098a70f097b74144d"
   # @@apiKey = "5b3ec929ab684d1cb2b060f5b7eb2245"
   # @@apiKey = "0578306e10a44e4bae97ee439fefc5ae"
   @@tags = [:cuisine, :intolerances, :diet, :type]

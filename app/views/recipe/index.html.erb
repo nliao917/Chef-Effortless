@@ -34,7 +34,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @recipes.each do |recipe| %>
+    <% @recipes.each_with_index do |recipe, idx| %>
       <tr>
         <td>
           <%= recipe[0]%>
@@ -59,11 +59,11 @@
           <% end %>
         </td>
         <td>
-          <%= link_to 'Detail', recipe_detail_path(recipe[6]), :class => 'btn btn-secondary' %>
+          <%= link_to "details(#{idx})", recipe_detail_path(recipe[6]), :class => 'btn btn-secondary' %>
         </td>
         <td>
 
-          <%= link_to 'Steps', recipe_show_path(recipe[6]), :class => 'btn btn-secondary' %>
+          <%= link_to "steps(#{idx})", recipe_show_path(recipe[6]), :class => 'btn btn-secondary' %>
         </td>
       </tr>
     <% end %>
