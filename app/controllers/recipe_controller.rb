@@ -13,7 +13,8 @@ class RecipeController < ApplicationController
   # @@apiKey = "5b3ec929ab684d1cb2b060f5b7eb2245"
   # @@apiKey = "0578306e10a44e4bae97ee439fefc5ae"
   @@tags = [:cuisine, :intolerances, :diet, :type]
-
+  @@ss = []
+  @@api_list = []
   def get_steps_info(id)
     info = HTTParty.get("https://api.spoonacular.com/recipes/"+id.to_s+"/analyzedInstructions", {query: {apiKey: @@apiKey}}).parsed_response
     return info
@@ -24,20 +25,24 @@ class RecipeController < ApplicationController
     return info
   end
 
-  def detail 
+  def detail(params)
     @obj = get_recipe_info(params['id'], true)
     #puts "--------------------------"
     #puts @obj
+    return @obj
   end
 
-  def show
+  def show(params)
     @obj = get_recipe_info(params['id'], false)
     @step = get_steps_info(params['id'])
+    return @obj, @step
   end
 
 
   def index
+    #get_recipes[1]
     @recipes = get_recipes[1].sort_by { |el| -el[5] }
+    return @receipes
   end
 
   # def recipe_params
@@ -76,13 +81,12 @@ class RecipeController < ApplicationController
         count = count + 1
       end
     end
-
     count
   end
 
 
 
-  def score(recipe)
+  def score(recipe, params)
     final_score = 0
     count = 0
   
@@ -132,8 +136,10 @@ class RecipeController < ApplicationController
         final_score -= 1
       end
     end
-
-    return final_score,count
+    # print("这是recipe")
+    # print(recipe)
+    # print(final_score)
+    return final_score, count
 
   end
 
@@ -150,7 +156,7 @@ class RecipeController < ApplicationController
     end
 
     key = @@ss.join(',')
-    num = 7
+    num = 3
     site = "https://api.spoonacular.com/recipes/findByIngredients"
     query_param = {ingredients: key, number: num, apiKey: @@apiKey}
 
@@ -183,7 +189,7 @@ class RecipeController < ApplicationController
       #puts "-------------------------------------------------------------------"
       #puts info
 
-      obj_score, obj_count = score(info)
+      obj_score, obj_count = score(info, params)
 
 
       if obj_count >= obj_target_count
