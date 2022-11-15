@@ -9,9 +9,12 @@ class RecipeController < ApplicationController
   # @@apiKey = "06c5643caf1b4d4fb78fa436b127b236"
   #@@apiKey = "2f0cb560447f48f6a6c3d12efee50385"
   #@@apiKey = "fa6f5860fc5c4706bac0c44362038232"
-  @@apiKey = "c2c323be3715495098a70f097b74144d"
+  #@@apiKey = "c2c323be3715495098a70f097b74144d"
   # @@apiKey = "5b3ec929ab684d1cb2b060f5b7eb2245"
   # @@apiKey = "0578306e10a44e4bae97ee439fefc5ae"
+
+  @@apiKey = "23ad34506bd74105828e41a179fda832"
+
   @@tags = [:cuisine, :intolerances, :diet, :type]
   @@ss = []
   @@api_list = []
@@ -25,14 +28,14 @@ class RecipeController < ApplicationController
     return info
   end
 
-  def detail(params)
+  def detail
     @obj = get_recipe_info(params['id'], true)
     #puts "--------------------------"
     #puts @obj
     return @obj
   end
 
-  def show(params)
+  def show
     @obj = get_recipe_info(params['id'], false)
     @step = get_steps_info(params['id'])
     return @obj, @step
