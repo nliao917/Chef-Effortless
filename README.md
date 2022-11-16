@@ -46,7 +46,9 @@ Branch: main
         rake db:setup
    
    OR 
-
+   
+        rake db:drop:all 
+        
         rake db:migrate
         
         rake db:seed

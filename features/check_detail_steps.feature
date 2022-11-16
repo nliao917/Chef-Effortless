@@ -12,11 +12,11 @@ Background: ingredients in database
 
 Scenario: User can see details of recipe
 Given I am on the recipe index page
-And I follow "details(0)"
+And I follow "details"
 Then I should see "Nutrition List"
 
 Scenario: User can see setps of recipe
 Given I am on the recipe index page
-And I follow "steps(0)"
+And I follow "steps"
 Then I should see "Step List"
 
