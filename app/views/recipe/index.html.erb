@@ -1,22 +1,14 @@
 <div>
 <%= form_tag recipe_index_path(), :method => :get, id: 'p' do %>
-  <%= label :recipe, :cuisine, 'Cusine', :class => 'col-form-label'  %>
-  <%= select :recipe, :cuisine,options_for_select(['Any', 'Mexican']), :class => 'form-control' %>
+  <%= label :recipe, :cuisine, 'Cuisine', :class => 'col-form-label'  %>
+  <%= select :recipe, :cuisine,options_for_select(['Any', 'American', 'Asian','British', 'Chinese', 'French', 'German', 'Greek', 'Italian', 'Japanese', 'Jewish', 'Korean', 'Mediterranean', 'Mexican', 'Spanish', 'Thai', 'Vietnamese']), :class => 'form-control' %>
 
   <%= label :recipe, :diet, 'Diet', :class => 'col-form-label'  %>
-  <%= select :recipe, :diet,options_for_select(['Any', 'dairy free', 'Ovo Vegetarian', 'Paleo', 'Pescetarian', 'Primal', 'Vegan', 'Vegetarian', 'Ketogenic', 'Whole 30']), :class => 'form-control' %>
-
-
-  <%= label :recipe, :intolerances, 'Intolerance', :class => 'col-form-label'  %>
-  <%= select :recipe, :intolerances, options_for_select(['None', 'Dairy', 'Egg', 'Gluten', 'Grains', 'Peanut', 'Seafood', 'Sesame', 'Shellfish', 'Soy', 'Sulfite',  'Tree Nut', 'Wheat']), :class => 'form-control' %>
-
+  <%= select :recipe, :diet,options_for_select(['Any', 'gluten free', 'dairy free', 'ovo vegetarian', 'lacto ovo vegetarian', 'paleo', 'pescetarian', 'primal', 'vegan', 'vegetarian', 'ketogenic', 'whole 30']), :class => 'form-control' %>
 
   <%= label :recipe, :occasion, 'Occasion', :class => 'col-form-label'  %>
-  <%= select :recipe, :occasion,options_for_select(['Any', 'Birthday', 'Christmas', 'Halloween', "New Year's Eve", 'Thanksgiving', "Valentine's Day", 'fall', 'winter']), :class => 'form-control' %>
+  <%= select :recipe, :occasion,options_for_select(['Any', 'spring', 'summer', 'fall', 'winter', 'Birthday', 'Christmas', 'Halloween', "New Year's Eve", 'Thanksgiving', "Valentine's Day"]), :class => 'form-control' %>
 
-
-  <%= label :recipe, :time, 'Time', :class => 'col-form-label'  %>
-  <%= select :recipe, :time, options_for_select(['Any','under 10 min','under 20 min','under 30 min','under 40 min','under 50 min','under 60 min']), :class => 'form-control' %>
 
   <%= submit_tag 'Update User Preference', :class => 'btn btn-primary' %>
 <% end %>
@@ -59,11 +51,10 @@
           <% end %>
         </td>
         <td>
-          <%= link_to "details(#{idx})", recipe_detail_path(recipe[6]), :class => 'btn btn-secondary' %>
+          <%= link_to "details", recipe_detail_path(recipe[6]), :class => 'btn btn-secondary' %>
         </td>
         <td>
-
-          <%= link_to "steps(#{idx})", recipe_show_path(recipe[6]), :class => 'btn btn-secondary' %>
+          <%= link_to "steps", recipe_show_path(recipe[6]), :class => 'btn btn-secondary' %>
         </td>
       </tr>
     <% end %>

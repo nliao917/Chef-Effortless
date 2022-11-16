@@ -62,8 +62,7 @@ ingredients = [{:item => 'Potato', :quantity => '5', :expiration_date => DateTim
           {:item => 'Turkey', :quantity => '6', :expiration_date => DateTime.new(2022,12,28,10)},
           {:item => 'Tuna', :quantity => '7', :expiration_date => DateTime.new(2022,12,28,10)},
           {:item => 'Strawberries', :quantity => '10', :expiration_date => DateTime.new(2022,12,28,10)},
-          {:item => 'Yogurt', :quantity => '5', :expiration_date => DateTime.new(2022,12,28,10)}
-          
+          {:item => 'Yogurt', :quantity => '5', :expiration_date => DateTime.new(2022,12,28,10)}     
   	 ]
 
 ingredients.each do |ingredient|
