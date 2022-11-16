@@ -28,14 +28,26 @@ class RecipeController < ApplicationController
     return info
   end
 
-  def detail
+  def detail_impl(params)
     @obj = get_recipe_info(params['id'], true)
     #puts "--------------------------"
     #puts @obj
     return @obj
   end
 
+
+  def detail
+    @obj = get_recipe_info(params['id'], true)
+    #puts "--------------------------"
+    #puts @obj
+  end
+
   def show
+    @obj = get_recipe_info(params['id'], false)
+    @step = get_steps_info(params['id'])
+  end
+
+  def show_impl(params)
     @obj = get_recipe_info(params['id'], false)
     @step = get_steps_info(params['id'])
     return @obj, @step

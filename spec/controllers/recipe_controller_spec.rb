@@ -29,14 +29,14 @@ RSpec.describe RecipeController, type: :controller do
   describe "detail" do
     it "should give recipe details" do
       params = {"controller"=>"recipe", "action"=>"index", "recipe"=>{"cuisine"=>"Any", "diet"=>"Any", "intolerances"=>"None", "occasion"=>"Any", "time"=>"Any"}}
-      expect(job.detail(params)).not_to be_nil
+      expect(job.detail_impl(params)).not_to be_nil
     end
   end
 
   describe "show" do
     it "should show recipe info and steps" do
       params = {"controller"=>"recipe", "action"=>"index", "recipe"=>{"cuisine"=>"Any", "diet"=>"Any", "intolerances"=>"None", "occasion"=>"Any", "time"=>"Any"}}
-      expect(job.show(params)).not_to be_nil
+      expect(job.show_impl(params)).not_to be_nil
     end
   end
 
