@@ -93,7 +93,7 @@ class RecipeController < ApplicationController
     final_score = 0
     count = 0
   
-    final_score += (@@ss & @@api_list).size * 0.5
+    final_score += (@@ss & @@api_list).size * 0.2
 
     if not params["recipe"]["cuisine"] == "Any" and not recipe["cuisines"]==nil
       if recipe["cuisines"].include?(params["recipe"]["cuisine"])
