@@ -61,6 +61,19 @@ class RecipeController < ApplicationController
     return @receipes
   end
 
+  def search
+    # site = "https://api.spoonacular.com/recipes/queries/analyze"
+    # query_param = {q: params['search'], apiKey: @@apiKey}
+    site = "https://api.spoonacular.com/recipes/complexSearch"
+    query_param = {query: params['search'], apiKey: @@apiKey}
+
+    # puts query_param
+    @recipes = []
+    objs= HTTParty.get(site, {query: query_param, header: {'Content-Type' => 'application/json'}}).parsed_response
+    objs['results'].each do |obj|
+      @recipes.push([obj['title'],obj['id']])
+    end
+  end
   # def recipe_params
   #   params.require(:recipe)
   # end

@@ -7,10 +7,10 @@
   <%= select :recipe, :diet,options_for_select(['Any', 'gluten free', 'dairy free', 'ovo vegetarian', 'lacto ovo vegetarian', 'paleo', 'pescetarian', 'primal', 'vegan', 'vegetarian', 'ketogenic', 'whole 30']), :class => 'form-control' %>
 
   <%= label :recipe, :occasion, 'Occasion', :class => 'col-form-label'  %>
-  <%= select :recipe, :occasion,options_for_select(['Any', 'spring', 'summer', 'fall', 'winter', 'Birthday', 'Christmas', 'Halloween', "New Year's Eve", 'Thanksgiving', "Valentine's Day"]), :class => 'form-control' %>
+  <%= select :recipe, :occasion, options_for_select(['Any', 'spring', 'summer', 'fall', 'winter', 'Birthday', 'Christmas', 'Halloween', "New Year's Eve", 'Thanksgiving', "Valentine's Day"]), :class => 'form-control' %>
 
 
-  <%= submit_tag 'Update User Preference', :class => 'btn btn-primary' %>
+  <%= submit_tag 'Update User Preference', :class => 'btn btn-outline-secondary my-2 my-sm-0' %>
 <% end %>
 </div>
 
