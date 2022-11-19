@@ -25,7 +25,7 @@
             <%= link_to "Create Recipe",recipe_index_path, :class => 'btn' %>
           </li>
           </ul>
-<%= form_tag recipe_search_path(), :method => :get,:class => 'form-inline my-2 my-lg-0', id: 'p' do %>
+<%= form_tag recipe_search_path(), :method => :get,:class => 'form-inline my-2 my-lg-0', id: 'Search' do %>
   <%= text_field_tag(:search, params[:search],:class => 'form-control mr-sm-2') %>
   <%= submit_tag 'Search Recipe in Mind', :class => 'btn btn-outline-secondary my-2 my-sm-0' %>
 <% end %>

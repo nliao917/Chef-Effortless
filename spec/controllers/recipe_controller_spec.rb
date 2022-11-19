@@ -25,6 +25,13 @@ RSpec.describe RecipeController, type: :controller do
     end
   end
 
+  describe "GET #search" do
+    it "returns http success" do
+      get :search, id: 648345
+      expect(response).to have_http_status(:success)
+    end
+  end
+
   describe "get_steps_info" do
     it "should give recipe steps information" do
       id = 653775
