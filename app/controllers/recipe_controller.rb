@@ -28,6 +28,11 @@ class RecipeController < ApplicationController
     return info
   end
 
+  def get_similar_recipes(id)
+    info = HTTParty.get("https://api.spoonacular.com/recipes/"+id.to_s+"/similar", {query: {apiKey: @@apiKey}}).parsed_response
+    return info
+  end
+
   def detail_impl(params)
     obj = get_recipe_info(params['id'], true)
     #puts "--------------------------"
@@ -46,12 +51,14 @@ class RecipeController < ApplicationController
     ret = show_impl(params)
     @obj = ret[0]
     @step = ret[1]
+    @similars = ret[2]
   end
 
   def show_impl(params)
     obj = get_recipe_info(params['id'], false)
     step = get_steps_info(params['id'])
-    return obj, step
+    similars = get_similar_recipes(params['id'])
+    return obj, step, similars
   end
 
 

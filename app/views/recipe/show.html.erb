@@ -6,6 +6,11 @@
     <%= image_tag(@obj['image']) %>
 </div>
 
+<% if @step[0]['steps'].length == 0 %>
+
+<%= link_to "Info on external website", @obj['sourceUrl'] %>
+
+<% else %>
 <h3>Step List</h3>
 <div>
 <table class="table table-striped col-md-12" id="used">
@@ -14,6 +19,23 @@
       <tr>
         <td>
           <%= item['step'] %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<% end %>
+
+<h3>similars recipes</h3>
+<div>
+<table class="table table-striped col-md-12" id="used">
+  <tbody>
+    <% @similars.each do |item| %>
+      <tr>
+        <td>
+          <%= link_to item['title'], recipe_show_path(item['id'])  %>
         </td>
       </tr>
     <% end %>
