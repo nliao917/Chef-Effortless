@@ -2,7 +2,7 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 
 
-ingredients = [{:item => 'Potato', :quantity => '5', :expiration_date => DateTime.new(2009,9,1,17)},
+ingredients = [{:item => 'Potato', :quantity => '5', :expiration_date => DateTime.new(2022,12,15,17)},
           {:item => 'Tomato', :quantity => '4', :expiration_date => DateTime.new(2022,12,9,17)},
           {:item => 'Rice', :quantity => '10', :expiration_date => DateTime.new(2022,9,11,13)},
           {:item => 'Beef', :quantity => '2', :expiration_date => DateTime.new(2022,10,12,17)},
