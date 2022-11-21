@@ -9,6 +9,7 @@
       <th>Quantity</th>
 <!--       <th>Expiration Date</th> -->
       <th>Make Changes</th>
+      <th>Delete Item</th>
     </tr>
   </thead>
   <tbody>
@@ -25,6 +26,9 @@
         </td> -->
         <td>
           <%= link_to "More about #{ingredient.item}", edit_ingredient_path(ingredient) %>
+        </td>
+        <td>
+          <%= button_to "Delete", ingredient_path(ingredient), :method => :delete %>
         </td>
       </tr>
     <% end %>

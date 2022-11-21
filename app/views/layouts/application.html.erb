@@ -21,10 +21,10 @@
           <li class="nav-item">
             <%= link_to "Ingredient", ingredients_path, :class => 'btn' %>
           </li>
-            <li class="nav-item">
+          <li class="nav-item">
             <%= link_to "Create Recipe",recipe_index_path, :class => 'btn' %>
           </li>
-          </ul>
+        </ul>
 <%= form_tag recipe_search_path(), :method => :get,:class => 'form-inline my-2 my-lg-0', id: 'Search' do %>
   <%= text_field_tag(:search, params[:search],:class => 'form-control mr-sm-2') %>
   <%= submit_tag 'Search Recipe in Mind', :class => 'btn btn-outline-secondary my-2 my-sm-0' %>

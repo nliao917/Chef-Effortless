@@ -31,12 +31,13 @@ class IngredientsController < ApplicationController
     redirect_to ingredient_path(@ingredient)
   end
 
-  # def destroy
-  #   @ingredient = Ingredient.find(params[:id])
-  #   @ingredient.destroy
-  #   flash[:notice] = "Ingredient '#{@ingredient.title}' deleted."
-  #   redirect_to ingredients_path
-  # end
+  def destroy
+    @ingredient = Ingredient.find(params[:id])
+    item = @ingredient.item
+    @ingredient.destroy
+    flash[:notice] = "Ingredient '#{item}' deleted."
+    redirect_to ingredients_path
+  end
 
   # private
   # # Making "internal" methods private is not required, but is a common practice.
