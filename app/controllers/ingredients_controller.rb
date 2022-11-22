@@ -43,6 +43,7 @@ class IngredientsController < ApplicationController
   # # Making "internal" methods private is not required, but is a common practice.
   # # This helps make clear which methods respond to requests, and which ones do not.
   def ingredient_params
-    params.require(:ingredient).permit(:item, :quantity, :quantity_date)
+      params.require(:ingredient).permit(:item, :quantity, :quantity_date)
+      # params.require(:ingredient).permit(:item, :quantity, :quantity_date)
   end
 end
