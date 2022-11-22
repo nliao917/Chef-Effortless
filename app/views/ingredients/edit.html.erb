@@ -8,13 +8,56 @@
       <%= form_tag ingredient_path(@ingredient), :method => :put do %>
         <%= label :ingredient, :quantity, 'Quantity', :class => 'col-form-label'  %>
         <%= text_field :ingredient, :quantity, class: 'form-control' %>
-
         <!--   <%= label :ingredient, :expiration_date, 'Expiration Date', :class => 'col-form-label'  %>
         <%= date_select :ingredient, :expiration_date, {}, :class => 'form-control col-2 d-inline' %>-->
         <br/>
         <%= submit_tag 'Update Ingredient Info', :class => 'btn btn-secondary' %>
         <%= link_to 'Cancel', ingredients_path, :class => 'btn btn-secondary' %>
       <% end %>
-    </div>
+    </div> 
   </div>
 </div>
+
+<br/>
+<% if @nutrients.length == 0 %>
+<h3>Nutrition Information Not Available! </h3>
+<% else %>
+<h3>Nutrition Information</h3>
+<div>
+<table class="table table-striped col-md-12" id="used">
+  <tbody>
+    <tr>
+    <td>
+        Name
+    </td>
+    <td>
+        Amount
+    </td>
+    <td>
+        Unit
+    </td>
+    <td>
+        % of Daily Needs
+    </td>
+    </tr>
+    <% @nutrients.each do |item| %>
+      <tr>
+        <td>
+          <%= item['name'] %>
+        </td>
+        <td>
+          <%= item['amount'] %>
+        </td>
+        <td>
+          <%= item['unit'] %>
+        </td>
+        <td>
+          <%= item['percentOfDailyNeeds'] %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<% end %>

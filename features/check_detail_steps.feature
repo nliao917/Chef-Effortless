@@ -15,7 +15,7 @@ Given I am on the recipe index page
 And I follow "details"
 Then I should see "Nutrition List"
 
-Scenario: User can see setps of recipe
+Scenario: User can see steps of recipe
 Given I am on the recipe index page
 And I follow "steps"
 Then I should see "Step List"
