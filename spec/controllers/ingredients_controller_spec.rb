@@ -59,5 +59,18 @@ RSpec.describe IngredientsController, type: :controller do
       end
 
     end
+
+    context "Deleting Ingredients" do
+      let!(:ingredient1) {Ingredient.create(item: 'test', quantity: '3', expiration_date: Date.new(1977,5,25))}
+
+      it "Should be deleting an ingredient" do
+        expect { delete :destroy, id: ingredient1.id}.to change(Ingredient, :count).by(-1)
+      end
+
+      it "redirects to index page after deletion" do
+        delete :destroy, id: ingredient1.id
+        expect(response).to redirect_to(ingredients_path)
+      end
+    end
   end
 end
