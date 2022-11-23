@@ -57,3 +57,24 @@
   </tbody>
 </table>
 </div>
+
+<h3>Purcase Links</h3>
+<div>
+<table class="table table-striped col-md-12" id="used">
+  <tbody>
+    <% @obj['winePairing']['productMatches'].each do |item| %>
+      <tr>
+        <td>
+          <%= item['title'] %>
+        </td>
+        <td>
+          <%= item['price'] %>
+        </td>
+        <td>
+          <%= link_to 'link', item['link'] %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
