@@ -7,7 +7,7 @@
 </div>
 
 <h3>Step List</h3>
-<% if @step[0]['steps'].length == 0 %>
+<% if @step[0] == nil ||  @step[0]['steps'].length == 0 %>
 
 <%= link_to "Info on external website", @obj['sourceUrl'] %>
 
@@ -43,31 +43,7 @@
 </table>
 </div>
 
-<h3>Wine pairing</h3>
-<div>
-<table class="table table-striped col-md-12" id="used">
-  <tbody>
-    <%if @obj['winePairing']['pairedwines'] %>
-    <% @obj['winePairing']['pairedWines'].each do |item| %>
-      <tr>
-        <td>
-          <%= item %>
-        </td>
-      </tr>
-    <% end %>
-    <% else %>
-      <tr>
-        <td>
-          no pair wine
-        </td>
-      </tr>
-
-    <% end %>
-  </tbody>
-</table>
-</div>
-
-<h3>Purcase Links</h3>
+<h3>Wine pairing recommendations</h3>
 <div>
 <table class="table table-striped col-md-12" id="used">
   <tbody>
