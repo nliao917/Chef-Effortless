@@ -6,12 +6,12 @@
     <%= image_tag(@obj['image']) %>
 </div>
 
+<h3>Step List</h3>
 <% if @step[0]['steps'].length == 0 %>
 
 <%= link_to "Info on external website", @obj['sourceUrl'] %>
 
 <% else %>
-<h3>Step List</h3>
 <div>
 <table class="table table-striped col-md-12" id="used">
   <tbody>
@@ -47,12 +47,21 @@
 <div>
 <table class="table table-striped col-md-12" id="used">
   <tbody>
+    <%if @obj['winePairing']['pairedwines'] %>
     <% @obj['winePairing']['pairedWines'].each do |item| %>
       <tr>
         <td>
           <%= item %>
         </td>
       </tr>
+    <% end %>
+    <% else %>
+      <tr>
+        <td>
+          no pair wine
+        </td>
+      </tr>
+
     <% end %>
   </tbody>
 </table>
@@ -62,6 +71,7 @@
 <div>
 <table class="table table-striped col-md-12" id="used">
   <tbody>
+    <%if @obj['winePairing']['productMatches'] %>
     <% @obj['winePairing']['productMatches'].each do |item| %>
       <tr>
         <td>
@@ -74,6 +84,14 @@
           <%= link_to 'link', item['link'] %>
         </td>
       </tr>
+    <% end %>
+    <% else %>
+      <tr>
+        <td>
+          no product match
+        </td>
+      </tr>
+
     <% end %>
   </tbody>
 </table>
