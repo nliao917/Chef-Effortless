@@ -4,6 +4,7 @@ ruby '2.6.6'
 gem 'rails', '4.2.10'
 gem 'pg', '~> 0.15'
 gem 'rails_12factor'
+gem 'bcrypt', '~> 3.1.7'
 
 gem 'httparty'
 

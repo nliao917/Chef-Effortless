@@ -1,0 +1,10 @@
+<form action='/users' method='post'>
+
+    <label for='email'>Email</label>
+    <input type='email' id='email' name='user[email]' />
+
+    <label for='password'>Password</label>
+    <input type='password' id='password' name='user[password]' />
+    
+    <%= submit_tag 'Register', :class => 'btn btn-primary' %>
+</form>
