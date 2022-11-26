@@ -165,6 +165,21 @@ RSpec.describe RecipeController, type: :controller do
   # end
 
 
+  describe "get_similar_recipes" do
+    it "should give similar_recipes" do
+      id = 648345
+      expect(job.get_similar_recipes(id)).not_to be_nil
+    end
+  end
+
+  describe "get wine pairing" do
+    it "should get no wine pairing" do
+      id = 653775
+      obj = job.get_recipe_info(id, false)
+
+      expect(obj['winePairing']['productMatches']).to be_nil
+    end
+  end
 
 
 end
