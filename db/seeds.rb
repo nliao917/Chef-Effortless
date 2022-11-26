@@ -62,39 +62,16 @@ ingredients = [{:user_id => 1, :item => 'Potato', :quantity => '5', :expiration_
           {:user_id => 1, :item => 'Turkey', :quantity => '6', :expiration_date => DateTime.new(2022,12,28,10)},
           {:user_id => 1, :item => 'Tuna', :quantity => '7', :expiration_date => DateTime.new(2022,12,28,10)},
           {:user_id => 1, :item => 'Strawberries', :quantity => '10', :expiration_date => DateTime.new(2022,12,28,10)},
-          {:user_id => 1, :item => 'Yogurt', :quantity => '5', :expiration_date => DateTime.new(2022,12,28,10)}, 
+          ]
 
-          {:user_id => 2, :item => 'Cranberries', :quantity => '3', :expiration_date => DateTime.new(2022,12,28,10)},
-          {:user_id => 2, :item => 'Cucumber', :quantity => '5', :expiration_date => DateTime.new(2022,12,28,10)},
-          {:user_id => 2, :item => 'Egglant', :quantity => '14', :expiration_date => DateTime.new(2022,12,28,10)},
-          {:user_id => 2, :item => 'Green Beans', :quantity => '3', :expiration_date => DateTime.new(2022,12,28,10)},
-          {:user_id => 2, :item => 'Herbs ans Spices', :quantity => '2', :expiration_date => DateTime.new(2022,12,28,10)},
-          {:user_id => 2, :item => 'Kale', :quantity => '1', :expiration_date => DateTime.new(2022,12,28,10)},
-          {:user_id => 2, :item => 'Kiwi', :quantity => '4', :expiration_date => DateTime.new(2022,12,28,10)},
-          {:user_id => 2, :item => 'Mangos', :quantity => '5', :expiration_date => DateTime.new(2022,12,28,10)},
-          {:user_id => 2, :item => 'Mushrooms', :quantity => '9', :expiration_date => DateTime.new(2022,12,28,10)},
-          {:user_id => 2, :item => 'Oats', :quantity => '6', :expiration_date => DateTime.new(2022,12,28,10)},
-          {:user_id => 2, :item => 'Onions', :quantity => '7', :expiration_date => DateTime.new(2022,12,28,10)},
-          {:user_id => 2, :item => 'Oranges', :quantity => '3', :expiration_date => DateTime.new(2022,12,28,10)},
-          {:user_id => 2, :item => 'Pears', :quantity => '9', :expiration_date => DateTime.new(2022,12,28,10)},
-          {:user_id => 2, :item => 'Pork', :quantity => '2', :expiration_date => DateTime.new(2022,12,28,10)},
-          {:user_id => 2, :item => 'Pumpkin', :quantity => '4', :expiration_date => DateTime.new(2022,12,28,10)},
-          {:user_id => 2, :item => 'Salmon', :quantity => '3', :expiration_date => DateTime.new(2022,12,28,10)},
-          {:user_id => 2, :item => 'Spinach', :quantity => '2', :expiration_date => DateTime.new(2022,12,28,10)},
-          {:user_id => 2, :item => 'Turkey', :quantity => '6', :expiration_date => DateTime.new(2022,12,28,10)},
-          {:user_id => 2, :item => 'Tuna', :quantity => '7', :expiration_date => DateTime.new(2022,12,28,10)},
-          {:user_id => 2, :item => 'Strawberries', :quantity => '10', :expiration_date => DateTime.new(2022,12,28,10)},
-          {:user_id => 2, :item => 'Yogurt', :quantity => '5', :expiration_date => DateTime.new(2022,12,28,10)}    
-  	 ]
+
+users = [ {:email => 'test1@gmail.com', :password => 'password1'}
+]
 
 ingredients.each do |ingredient|
   Ingredient.create!(ingredient)
 end
 
-
-users = [ {:email => 'test1@gmail.com', :password => 'password1'},
-          {:email => 'test2@gmail.com', :password => 'password2'}
-]
 
 users.each do |user|
     User.create!(user)
