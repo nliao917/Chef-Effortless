@@ -179,6 +179,13 @@ RSpec.describe RecipeController, type: :controller do
 
       expect(obj['winePairing']['productMatches']).to be_nil
     end
+
+    it "should get wine pairings" do
+      id = 648345
+      obj = job.get_recipe_info(id, false)
+
+      expect(obj['winePairing']['productMatches']).not_to be_nil
+    end
   end
 
 
