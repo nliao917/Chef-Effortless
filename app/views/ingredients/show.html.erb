@@ -16,7 +16,7 @@
     <h5 class="card-title"><%= @ingredient.item %></h5>
     <p class="card-text">Quantity: <%= @ingredient.quantity %></p>
     <a href="/ingredients" class="card-link btn btn-secondary">Back to List</a>
-    <a href="/recipe/index" class="card-link btn btn-secondary">Create Recipe</a>
+    <a href="/ingredients/<%= @ingredient.id %>/edit" class="card-link btn btn-secondary">Show Nutrition Info</a>
   </div>
 </div>
 </div>
@@ -27,7 +27,7 @@
     <h5 class="card-title"><%= @ingredient.item %></h5>
     <p class="card-text">Quantity:<%= @ingredient.quantity %></p>
     <a href="/ingredients" class="card-link">Back to List</a>
-    <a href="/recipe/index" class="card-link">Create Recipe</a>
+    <a href="/ingredients/<%= @ingredient.id %>/edit" class="card-link">Show Nutrition Info</a>
   </div>
 </div> -->
 

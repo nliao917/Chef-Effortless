@@ -1,10 +1,10 @@
-<div class="hero_image" class="d-flex align-items-center " style="height:700px; width: 100%;border:1px solid black; background-image: url(<%= 'https://source.unsplash.com/qJQcpKHtkJI' %>);background-size: cover;background-position: center">
-
+<div class="hero_image" class="d-flex align-items-center " style="height:800px; width: 100%;border:1px solid black; background-image: url(<%= 'https://source.unsplash.com/4y3Dqy2tTM4' %>);background-size: cover;background-position: center;background-attachment:fixed;
+    overflow:scroll;">
   <div class="d-flex p-2 bd-highlight">
     <div class="d-flex justify-content-around" style="width:380px;height:380px;border-style: none;background-color: transparent;">
     </div>
 
-    <div class="card d-flex justify-content-around" style="width: 600px;height:800px;border-style: none;background-color: transparent;">
+    <div class="card d-flex justify-content-center" style="width: 300px;height:600px;border-style: none;background-color: transparent;">
       <%= form_tag ingredient_path(@ingredient), :method => :put do %>
         <%= label :ingredient, :quantity, 'Quantity', :class => 'col-form-label'  %>
         <%= text_field :ingredient, :quantity, class: 'form-control' %>
@@ -16,48 +16,50 @@
       <% end %>
     </div> 
   </div>
-</div>
 
-<br/>
-<% if @nutrients.length == 0 %>
-<h3>Nutrition Information Not Available! </h3>
-<% else %>
-<h3>Nutrition Information</h3>
-<div>
-<table class="table table-striped col-md-12" id="used">
-  <tbody>
-    <tr>
-    <td>
-        Name
-    </td>
-    <td>
-        Amount
-    </td>
-    <td>
-        Unit
-    </td>
-    <td>
-        % of Daily Needs
-    </td>
-    </tr>
-    <% @nutrients.each do |item| %>
+
+  <br/>
+  <% if @nutrients.length == 0 %>
+  <h3>Nutrition Information Not Available! </h3>
+  <% else %>
+  <h3>Nutrition Information</h3>
+  <div>
+  <table class="table table-striped col-md-12" id="used">
+    <tbody>
       <tr>
-        <td>
-          <%= item['name'] %>
-        </td>
-        <td>
-          <%= item['amount'] %>
-        </td>
-        <td>
-          <%= item['unit'] %>
-        </td>
-        <td>
-          <%= item['percentOfDailyNeeds'] %>
-        </td>
+      <td>
+          Name
+      </td>
+      <td>
+          Amount
+      </td>
+      <td>
+          Unit
+      </td>
+      <td>
+          % of Daily Needs
+      </td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-</div>
+      <% @nutrients.each do |item| %>
+        <tr>
+          <td>
+            <%= item['name'] %>
+          </td>
+          <td>
+            <%= item['amount'] %>
+          </td>
+          <td>
+            <%= item['unit'] %>
+          </td>
+          <td>
+            <%= item['percentOfDailyNeeds'] %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
 
-<% end %>
+  <% end %>
+
+</div>
