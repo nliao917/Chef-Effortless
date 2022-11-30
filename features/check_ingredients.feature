@@ -29,7 +29,7 @@ Scenario: Update Ingredients
 When I am on the ingredients page 
 And I follow "More about Potato"
 Then I should be on the edit page for "Potato"
-And I fill in "Quantity" with "3"
+And I input with "3"
 Then I press "Update Ingredient Info"
 And I follow "Back to List"
 Then I should be on the ingredients page

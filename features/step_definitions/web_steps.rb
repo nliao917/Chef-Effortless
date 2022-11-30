@@ -69,6 +69,20 @@ When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
   select(value, :from => field)
 end
 
+
+#Then("I input with {string}") do |string|
+# Then /^(?:|I )input with ([^"]*)"$/ do |value|
+#    # Write code here that turns the phrase above into concrete actions
+# end
+
+Then("I input with {string}") do |string|
+   # Write code here that turns the phrase above into concrete actions
+end
+
+# Then("I input with {string} and {string}") do |string, string2|
+#   # Write code here that turns the phrase above into concrete actions
+# end
+
 # When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |value, field|
 #   select(value, :from => field)
 # end
