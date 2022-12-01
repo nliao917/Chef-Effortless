@@ -18,12 +18,21 @@ RSpec.describe RecipeController, type: :controller do
     end
   end
 
+  #describe "VISIT #step" do
+  #  it "have right content" do
+  #    visit recipe_show_path(648345)
+  #    expect(page).to have_content("details")
+  #    expect(page).to have_content("steps")
+  #  end
+  #end
+
   describe "GET #detail" do
     it "returns http success" do
       get :detail, id: 648345
       expect(response).to have_http_status(:success)
     end
   end
+
 
   describe "GET #search" do
     it "returns http success" do

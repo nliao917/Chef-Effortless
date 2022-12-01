@@ -14,6 +14,7 @@ Scenario: User can see details of recipe
 Given I am on the recipe index page
 And I follow "details"
 Then I should see "Nutrition List"
+And I should see "Back"
 
 Scenario: User can see steps of recipe
 Given I am on the recipe index page
@@ -21,4 +22,5 @@ And I follow "steps"
 Then I should see "Step List"
 And I should see "Wine pairing recommendations"
 And I should see "similars recipes"
+And I should see "Back"
 
