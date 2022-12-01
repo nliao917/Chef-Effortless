@@ -37,6 +37,12 @@
         <td>
           <%= link_to item['title'], recipe_show_path(item['id'])  %>
         </td>
+        <td>
+          <%= link_to "details", recipe_detail_path(item['id']), :class => 'btn btn-secondary' %>
+        </td>
+        <td>
+          <%= link_to "steps", recipe_show_path(item['id']), :class => 'btn btn-secondary' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
