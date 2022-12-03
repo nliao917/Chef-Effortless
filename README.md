@@ -63,6 +63,10 @@ Open you web browser to `localhost:3000` and enjoy!
 ## Running on heroku
 
 Link:
-https://afternoon-taiga-41416.herokuapp.com/
+https://fast-brook-12024.herokuapp.com/
+
+Test account login:
+test@123.com
+password: 123456
 
 
