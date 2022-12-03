@@ -202,7 +202,10 @@ class RecipeController < ApplicationController
   end
 
   def get_ingredients
-    return Ingredient.where("quantity > 0")
+    #return Ingredient.where("quantity > 0")
+    current_user.ingredients.select do |item|
+      item.quantity > 0
+    end
   end
 
 end

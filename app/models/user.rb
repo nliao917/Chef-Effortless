@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
   #       :recoverable, :rememberable, :validatable
   devise :database_authenticatable, :registerable,
         :rememberable, :validatable
+
+  has_many :ingredients
 end

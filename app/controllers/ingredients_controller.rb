@@ -21,7 +21,8 @@ class IngredientsController < ApplicationController
   end
 
   def index
-    @ingredients = Ingredient.all
+    #@ingredients = Ingredient.all
+    @ingredients = current_user.ingredients
   end
 
   # def new
@@ -29,7 +30,9 @@ class IngredientsController < ApplicationController
   # end
 
   def create
-    @ingredient = Ingredient.create!(ingredient_params)
+    cparams = ingredient_params
+    cparams[:user_id] = current_user.id
+    @ingredient = Ingredient.create!(cparams)
     flash[:notice] = "#{@ingredient.item} was successfully created."
     redirect_to ingredients_path
   end
