@@ -6,6 +6,7 @@ gem 'pg', '~> 0.15'
 gem 'rails_12factor'
 
 gem 'httparty'
+gem 'devise'
 
 
 # for Heroku deployment 
