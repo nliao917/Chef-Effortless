@@ -3,6 +3,7 @@ require "base64"
 
 class RecipeController < ApplicationController
     before_action :authenticate_user!
+
   ## ------这个不要用！！！！------ ##
   # @@apiKey = "7f274a56343748968771ed0642f79c6c"
   ## ------下面的都可以用------ ##
