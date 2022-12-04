@@ -2,8 +2,6 @@ require "json"
 require "base64"
 
 class RecipeController < ApplicationController
-    before_action :authenticate_user!
-
   ## ------这个不要用！！！！------ ##
   # @@apiKey = "7f274a56343748968771ed0642f79c6c"
   ## ------下面的都可以用------ ##
@@ -202,10 +200,7 @@ class RecipeController < ApplicationController
   end
 
   def get_ingredients
-    #return Ingredient.where("quantity > 0")
-    current_user.ingredients.select do |item|
-      item.quantity > 0
-    end
+    return Ingredient.where("quantity > 0")
   end
 
 end

@@ -1,7 +1,6 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 
-user = User.create!({email: 'test@test.com', password: 'password', password_confirmation: 'password'})
 
 ingredients = [{:item => 'Potato', :quantity => '5', :expiration_date => DateTime.new(2022,12,15,17)},
           {:item => 'Tomato', :quantity => '4', :expiration_date => DateTime.new(2022,12,9,17)},
@@ -67,7 +66,6 @@ ingredients = [{:item => 'Potato', :quantity => '5', :expiration_date => DateTim
   	 ]
 
 ingredients.each do |ingredient|
-ingredient[:user_id] = user.id
   Ingredient.create!(ingredient)
 end
 

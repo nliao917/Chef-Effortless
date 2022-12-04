@@ -1,6 +1,4 @@
 class IngredientsController < ApplicationController
-    before_action :authenticate_user!
-
   ## ------这个不要用！！！！------ ##
   # @@apiKey = "7f274a56343748968771ed0642f79c6c"
   ## ------下面的都可以用------ ##
@@ -21,8 +19,7 @@ class IngredientsController < ApplicationController
   end
 
   def index
-    #@ingredients = Ingredient.all
-    @ingredients = current_user.ingredients
+    @ingredients = Ingredient.all
   end
 
   # def new
@@ -31,7 +28,6 @@ class IngredientsController < ApplicationController
 
   def create
     cparams = ingredient_params
-    cparams[:user_id] = current_user.id
     @ingredient = Ingredient.create!(cparams)
     flash[:notice] = "#{@ingredient.item} was successfully created."
     redirect_to ingredients_path

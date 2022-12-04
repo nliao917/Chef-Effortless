@@ -1,5 +1,4 @@
 Rottenpotatoes::Application.routes.draw do
-  devise_for :users
   get 'recipe/index'
   get 'recipe/search', to:'recipe#search', as: 'recipe_search'
   get 'recipe/show/:id', to: 'recipe#show', as: 'recipe_show'
