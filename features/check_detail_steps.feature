@@ -21,6 +21,6 @@ Given I am on the recipe index page
 And I follow "steps"
 Then I should see "Step List"
 And I should see "Wine pairing recommendations"
-And I should see "similars recipes"
+And I should see "Similar recipes"
 And I should see "Back"
 
