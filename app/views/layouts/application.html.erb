@@ -34,6 +34,7 @@
         <%= submit_tag 'Search Recipe in Mind', :class => 'btn btn-outline-secondary my-2 my-sm-0' %>
         <% end %>
         
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn' %>
       </div>
       <% end %>
     </nav>
