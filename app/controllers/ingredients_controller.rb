@@ -22,15 +22,38 @@ class IngredientsController < ApplicationController
     @ingredients = Ingredient.all
   end
 
-  # def new
-  #   # default: render 'new' template
-  # end
-
   def create
     cparams = ingredient_params
-    @ingredient = Ingredient.create!(cparams)
-    flash[:notice] = "#{@ingredient.item} was successfully created."
-    redirect_to ingredients_path
+    if cparams['item'].empty?
+      flash[:notice] = "Error - please input a valid name"
+      render :new
+    elsif cparams['quantity'].to_i <=0
+      flash[:notice] = "Error - please input a valid quantity"
+      render :new
+    else
+      cparams['item'] = cparams['item'].titleize
+      if !Ingredient.find_by_item(cparams['item']).nil?
+        @ingredient = Ingredient.find_by_item(cparams['item'])
+        begin 
+          @ingredient.update_attributes!(cparams)
+          flash[:notice] = "#{@ingredient.item} was successfully updated."
+          redirect_to ingredients_path
+        rescue
+          flash[:notice] = "Error - please input a valid name and quantity"
+          render :new
+        end
+      else
+        @ingredient = Ingredient.new(cparams)
+        begin 
+          @ingredient.save
+          flash[:notice] = "#{@ingredient.item} was successfully created."
+          redirect_to ingredients_path
+        rescue
+          flash[:notice] = "Error - please input a valid name and quantity"
+          render :new
+        end
+      end
+    end
   end
 
 
