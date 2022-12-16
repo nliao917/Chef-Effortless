@@ -3,6 +3,14 @@ require 'rails_helper'
 
 RSpec.describe RecipeController, type: :controller do
   let(:job) {RecipeController.new} 
+  before do 
+    @user = User.find_by(email: 'test@test.com')
+    if @user == nil 
+      @user = User.create!({email: 'test@test.com', password: 'password', password_confirmation: 'password'})
+    end
+    sign_in @user
+    
+  end
     
   describe "GET #index" do
     it "returns http success" do
