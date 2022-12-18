@@ -64,5 +64,5 @@ Open you web browser to `localhost:3000` and enjoy!
 
 ### Heroku link
 
-https://fast-brook-12024.herokuapp.com/
+https://mighty-beyond-16338.herokuapp.com/
 
